@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EF.Configer;
 using System.Reflection;
-
+using EF.Entity;
 namespace EF
 {
    public class MyDbContext:DbContext

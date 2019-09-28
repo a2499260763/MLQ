@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EF
+namespace EF.Entity
 {
-  public  class Student
+   public class Salary
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int SID { get; set; }
+
+        public string SName { get; set; }
     }
 }

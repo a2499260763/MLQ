@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using IDAO;
 using Model;
-using EF;
+using EF.Entity;
 using System.Linq.Expressions;
+using EF;
 
 namespace DAO
 {
-    public class PublicCharDAO : DaoBase<EF.PublicChar>, IPublicCharDAO
+    public class PublicCharDAO : DaoBase<PublicChar>, IPublicCharDAO
     {
         public int PublicCharAdd(PublicCharModel sm)
         {

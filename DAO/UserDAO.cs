@@ -7,10 +7,11 @@ using IDAO;
 using Model;
 using EF;
 using System.Linq.Expressions;
+using EF.Entity;
 
 namespace DAO
 {
-    public class UserDAO : DaoBase<EF.User>, IUserDAO
+    public class UserDAO : DaoBase<User>, IUserDAO
     {
         public List<UserModel> login(string name, string password)
         {
@@ -58,7 +59,7 @@ namespace DAO
 
         public int UserAdd(Model.UserModel t)
         {
-            EF.User st = new EF.User()
+            User st = new User()
             {
                 user_id = t.user_id,
                 user_name = t.user_name,
@@ -71,7 +72,7 @@ namespace DAO
 
         public int UserDelete(Model.UserModel t)
         {
-            EF.User st = new EF.User()
+            User st = new User()
             {
                 user_id = t.user_id,
                 user_name = t.user_name,

@@ -33,9 +33,6 @@
     <Reference Include="EntityFramework">
       <HintPath>C:\Users\爸爸的电脑\Documents\Visual Studio 2015\Projects\Solution1\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>C:\Users\爸爸的电脑\Documents\Visual Studio 2015\Projects\Solution1\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
