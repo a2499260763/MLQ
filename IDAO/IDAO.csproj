@@ -43,9 +43,12 @@
     <Compile Include="IMajorChenDAO.cs" />
     <Compile Include="IMajorDAO.cs" />
     <Compile Include="IMajorKindDAO.cs" />
+    <Compile Include="IoneorganizationDAO.cs" />
     <Compile Include="IPublicCharDAO.cs" />
     <Compile Include="ISalaryDAO.cs" />
     <Compile Include="IStudentDAO.cs" />
+    <Compile Include="IthreeorganizationDAO.cs" />
+    <Compile Include="ItwoorganizationDAO.cs" />
     <Compile Include="IUserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

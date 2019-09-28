@@ -43,9 +43,12 @@
     <Compile Include="IMajorBLL.cs" />
     <Compile Include="IMajorChenBLL.cs" />
     <Compile Include="IMajorKindBLL.cs" />
+    <Compile Include="IoneorganizationBLL.cs" />
     <Compile Include="IPublicCharBLL.cs" />
     <Compile Include="ISalaryBLL.cs" />
     <Compile Include="IStudentBLL.cs" />
+    <Compile Include="IthreeorganizationBLL.cs" />
+    <Compile Include="ItwoorganizationBLL.cs" />
     <Compile Include="IUserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

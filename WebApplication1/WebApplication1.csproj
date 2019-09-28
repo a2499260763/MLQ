@@ -174,7 +174,10 @@
     <Compile Include="Controllers\LiangController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\oneorganizationController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\threeorganizationController.cs" />
+    <Compile Include="Controllers\twoorganizationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -682,6 +685,15 @@
     <Content Include="Views\Liang\public_char_add.cshtml" />
     <Content Include="Views\Liang\salary_item.cshtml" />
     <Content Include="Views\Liang\salary_item_register.cshtml" />
+    <Content Include="Views\oneorganization\insertone.cshtml" />
+    <Content Include="Views\oneorganization\Selectoneorganization.cshtml" />
+    <Content Include="Views\oneorganization\SelectWhereone.cshtml" />
+    <Content Include="Views\threeorganization\insertthree.cshtml" />
+    <Content Include="Views\threeorganization\Selectthree.cshtml" />
+    <Content Include="Views\threeorganization\SelectWherethree.cshtml" />
+    <Content Include="Views\twoorganization\inserttwo.cshtml" />
+    <Content Include="Views\twoorganization\Selecttwo.cshtml" />
+    <Content Include="Views\twoorganization\SelectWheretwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

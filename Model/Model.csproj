@@ -45,10 +45,13 @@
     <Compile Include="MajorChenModel.cs" />
     <Compile Include="MajorKindModel.cs" />
     <Compile Include="MajorModel.cs" />
+    <Compile Include="oneorganizationModel.cs" />
     <Compile Include="PublicCharModel.cs" />
     <Compile Include="SalaryModel.cs" />
     <Compile Include="StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="threeorganizationModel.cs" />
+    <Compile Include="twoorganizationModel.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,142 @@
+﻿@model threeorganizationModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>insertthree</title>
+    <link href="~/Css/table.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="div123"> 
+        @using (Html.BeginForm("InsertWherethree", "threeorganization", FormMethod.Post))
+        {
+        <table width="100%">
+            <tr>
+                <td>
+                    <font color="black">
+                        您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--III级机构设置--III级机构添加
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="submit" value="提交" class="BUTTON_STYLE1">
+                    <input type="button" value="返回" class="BUTTON_STYLE1"
+                           onclick="history.back();">
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" border="1" cellpadding=0 cellspacing=1
+               bordercolorlight=#848284 bordercolordark=#eeeeee
+               class="TABLE_STYLE1">
+            <tr>
+                <td width="19%" class="TD_STYLE1">
+                    I级机构名称
+                </td>
+                <td width="81%" class="TD_STYLE2">
+                    <select name="oneName" id="firstKindId" class="INPUT_STYLE1" v-on:change="bian">
+                        <option value="0">
+                            请选择I机构名称
+                        </option>
+                        <option v-for="(item,index) in nums" v-bind:value="item.oneCodeName">{{item.oneCodeName}}</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="19%" class="TD_STYLE1">
+                    II级机构名称
+                </td>
+                <td width="81%" class="TD_STYLE2">
+                    <select name="twoCodeName" id="secondKindId" class="INPUT_STYLE1">
+                        <option value="0">
+                            请选择II机构名称
+                        </option>
+                        <option v-for="(item,index) in ead" v-bind:value="item.twoCodeName">{{item.twoCodeName}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="19%" class="TD_STYLE1">
+                    III级机构编号
+                </td>
+                <td width="81%" class="TD_STYLE2" name="threeCode"><input id="Text1" name="threeCode" readonly="readonly" type="text" value="@ViewBag.s" /></td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    III级机构名称
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" class="INPUT_STYLE1" required="required" name="threeCodeName" />
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）
+                </td>
+                <td class="TD_STYLE2">
+                    <textarea rows="4" required="required" cols="120" class="TEXTAREA_STYLE1" name="threeCodemarket"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    是否为零售店（是/否）
+                </td>
+                <td class="TD_STYLE2">
+                    <select name="threeCodepd">
+                        <option selected="selected" value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#div123",
+            data: {
+                nums: "",
+                ead:""
+            },
+            methods: {
+                load: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/threeorganization/Selectone",
+                        type:"post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.nums = dt;
+                        }
+                    })
+                },
+                bian: function () {
+                    var t = this;
+                    var id = $("#firstKindId").val();
+                    $.ajax({
+                        url: "/threeorganization/Selecttwo/"+id,
+                        type: "post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.ead = dt;
+                        }
+                    })
+                }
+            },
+            created: function () {
+                this.load();
+            }
+        })
+    </script>
+</body>
+</html>

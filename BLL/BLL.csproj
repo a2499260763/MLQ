@@ -43,10 +43,13 @@
     <Compile Include="MajorBLL.cs" />
     <Compile Include="MajorChenBLL.cs" />
     <Compile Include="MajorKindBLL.cs" />
+    <Compile Include="oneorganizationBLL.cs" />
     <Compile Include="PublicCharBLL.cs" />
     <Compile Include="SalaryBLL.cs" />
     <Compile Include="StudentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="threeorganizationBLL.cs" />
+    <Compile Include="twoorganizationBLL.cs" />
     <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
