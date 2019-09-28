@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LiangController.cs" />
     <Compile Include="Controllers\MainController.cs" />
@@ -694,6 +695,11 @@
     <Content Include="Views\twoorganization\inserttwo.cshtml" />
     <Content Include="Views\twoorganization\Selecttwo.cshtml" />
     <Content Include="Views\twoorganization\SelectWheretwo.cshtml" />
+    <Content Include="Views\Client\MajorChenIndex.cshtml" />
+    <Content Include="Views\Client\MajorIndex.cshtml" />
+    <Content Include="Views\Client\MajorKindIndex.cshtml" />
+    <Content Include="Views\Client\MajorKindInsert.cshtml" />
+    <Content Include="Views\Client\MajorInsert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -710,6 +716,14 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{d7f9a79a-992f-48ab-94ff-9fd71d68aa33}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{9b6f6ce5-f85b-4d0c-bdf9-eca4d39d625f}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EF\EF.csproj">
+      <Project>{32ab14a0-d786-428a-af6d-da36cfccde41}</Project>
+      <Name>EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{f7f5f56e-774f-4ad4-9cd0-4021187c2d7f}</Project>
