@@ -29,6 +29,9 @@ namespace EF
         public DbSet<PublicChar> PublicChar { get; set; }
 
         public DbSet<Salary> Salary { get; set; }
+        public DbSet<oneorganization> oneorganization { get; set; }
+        public DbSet<twoorganization> twoorganization { get; set; }
+        public DbSet<threeorganization> threeorganization { get; set; }
 
     }
 }

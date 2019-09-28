@@ -49,11 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configer\oneorganizationConfiger.cs" />
     <Compile Include="Configer\PublicCharConfiger.cs" />
     <Compile Include="Configer\SalaryConfiger.cs" />
+    <Compile Include="Configer\threeorganizationConfiger.cs" />
+    <Compile Include="Configer\twoorganizationConfiger.cs" />
     <Compile Include="Configer\UserConfiger.cs" />
+    <Compile Include="Entity\oneorganization.cs" />
     <Compile Include="Entity\PublicChar.cs" />
     <Compile Include="Entity\Salary.cs" />
+    <Compile Include="Entity\threeorganization.cs" />
+    <Compile Include="Entity\twoorganization.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Configer\StudentConfiger.cs" />
     <Compile Include="MyDbContext.cs" />
