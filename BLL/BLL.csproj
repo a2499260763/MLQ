@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MajorBLL.cs" />
+    <Compile Include="MajorChenBLL.cs" />
+    <Compile Include="MajorKindBLL.cs" />
     <Compile Include="PublicCharBLL.cs" />
     <Compile Include="SalaryBLL.cs" />
     <Compile Include="StudentBLL.cs" />

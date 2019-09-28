@@ -52,6 +52,9 @@
     <Compile Include="Configer\PublicCharConfiger.cs" />
     <Compile Include="Configer\SalaryConfiger.cs" />
     <Compile Include="Configer\UserConfiger.cs" />
+    <Compile Include="Entity\Major.cs" />
+    <Compile Include="Entity\MajorChen.cs" />
+    <Compile Include="Entity\MajorKind.cs" />
     <Compile Include="Entity\PublicChar.cs" />
     <Compile Include="Entity\Salary.cs" />
     <Compile Include="Entity\User.cs" />
