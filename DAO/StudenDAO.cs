@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using IDAO;
 using Model;
-using EF;
+using EF.Entity;
 using System.Linq.Expressions;
+using EF;
 
 namespace DAO
 {

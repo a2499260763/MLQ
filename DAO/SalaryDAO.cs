@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using IDAO;
 using Model;
-using EF;
+using EF.Entity;
 using System.Linq.Expressions;
+using EF;
 
 namespace DAO
 {
-    public class SalaryDAO : DaoBase<EF.Salary>, ISalaryDAO
+    public class SalaryDAO : DaoBase<Salary>, ISalaryDAO
     {
         public int SalaryAdd(SalaryModel sm)
         {
