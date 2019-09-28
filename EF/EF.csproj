@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configer\MajorChenConfig.cs" />
+    <Compile Include="Configer\MajorConfig.cs" />
+    <Compile Include="Configer\MajorKindConfig.cs" />
     <Compile Include="Configer\oneorganizationConfiger.cs" />
     <Compile Include="Configer\PublicCharConfiger.cs" />
     <Compile Include="Configer\SalaryConfiger.cs" />
