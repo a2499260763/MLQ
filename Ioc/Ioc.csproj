@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -43,25 +43,25 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Unity.Abstractions">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.Abstractions.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Configuration">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.Configuration.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Container">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.Container.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Interception">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.Interception.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.Interception.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Interception.Configuration">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.Interception.Configuration.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RegistrationByConvention">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.RegistrationByConvention.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ServiceLocation">
-      <HintPath>..\..\..\..\..\..\..\..\上课资料\Y2\Unity\Unity.5.8.11\lib\net46\Unity.ServiceLocation.dll</HintPath>
+      <HintPath>..\..\Code\HR\Ioc\bin\Debug\Unity.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
