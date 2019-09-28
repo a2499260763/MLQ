@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>salary_item</title>
+    <link rel="stylesheet"
+          href="../../css/table.css" type="text/css">
+    <script type="text/javascript"
+            src="../../javascript/comm/comm.js">
+    </script>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+
+</head>
+<body>
+    <div id="div123"> 
+        
+            <table width="100%">
+                <tr>
+                    <td>
+                        <font color="black">
+                            您正在做的业务是：人力资源--客户化设置--薪酬管理设置--薪酬项目设置
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <input type="button" value="添加" class="BUTTON_STYLE1"
+                               v-on:click="insert">
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="1" cellpadding=0 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                <tr height="20">
+                    <td width="80%" class="TD_STYLE1" align="center">
+                        薪酬项目名称
+                    </td>
+                    <td width="20%" class="TD_STYLE1" align="center">
+                        删除
+                    </td>
+                </tr>
+                <tr v-for="(item,index) in nums">
+                    <td class="TD_STYLE2">
+                        {{item.SName}}
+                    </td>
+  
+                    <td class="TD_STYLE2">
+                        <a v-on:click="Deleteone(item.SID)">删除</a>
+                    </td>
+                </tr>
+
+
+            </table>
+            <br>
+            <br>
+            <th colspan="7" class="pager"></th>
+        
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#div123",
+            data: {
+                nums:""
+            },
+            methods: {
+                load: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/Liang/SelectSalary",
+                        type:"post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.nums = dt;
+                        }
+                    })
+                },
+
+                insert() {
+                    location.href = '../Liang/salary_item_register';
+                },
+                Deleteone(oneID) {
+                    if (confirm("确认要删除吗？")) {
+                        var t = this;
+                        $.ajax({
+                            url: "/Liang/DeleteSalary?id=" + oneID,
+                            type: "post",
+                            success: function (msg) {
+                                var dt = eval("(" + msg + ")");
+                                if (dt > 0) {
+                                    alert("删除成功");
+                                    location.href = '../Liang/salary_item';
+                                } else {
+                                    alert("删除失败");
+                                }
+                            }
+                        })
+                    }
+
+                }
+            },
+            created: function () {
+                this.load();
+            }
+        })
+    </script>
+</body>
+</html>
