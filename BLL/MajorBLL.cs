@@ -7,14 +7,14 @@ using IBLL;
 using IDAO;
 using Model;
 using EF;
-using locContatiner;
+using Ioc;
 using DAO;
 
 namespace BLL
 {
     public class MajorBLL : IMajorBLL
     {
-        IMajorDAO im = IocContatiner.CreateDao<IMajorDAO, MajorDAO>();
+        IMajorDAO im = Ioc.IocCreate.CreateDao<IMajorDAO, MajorDAO>();
         public int AddMajor(MajorModel mm)
         {
             return im.AddMajor(mm);
