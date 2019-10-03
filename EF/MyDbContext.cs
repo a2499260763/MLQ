@@ -32,12 +32,6 @@ namespace EF
         public DbSet<oneorganization> oneorganization { get; set; }
         public DbSet<twoorganization> twoorganization { get; set; }
         public DbSet<threeorganization> threeorganization { get; set; }
-        public DbSet<Entity.MajorKind> MajorKind { get; set; }
-
-        public DbSet<Entity.MajorChen> MajorChen { get; set; }
-
-        public DbSet<Entity.Major> Major { get; set; }
-
 
     }
 }

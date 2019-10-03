@@ -9,11 +9,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>MajorIndex</title>
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/vue-2.4.0.js"></script>
     <link rel="stylesheet"
           href="../../css/table.css" type="text/css">
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/javascript/vue-2.4.0.js"></script>
-
 
 </head>
 <body>
@@ -80,7 +79,7 @@
                     var t = this;
                     $.ajax({
                         url: "/Client/MajorIndex2",
-                        type: "get",
+                        type: "post",
                         data: "",
                         success: function (msg) {
                             t.nums = eval("" + msg + "");
