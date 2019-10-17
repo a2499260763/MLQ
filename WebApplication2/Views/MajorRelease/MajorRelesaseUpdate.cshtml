@@ -1,0 +1,292 @@
+﻿@model DataTable
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>MajorRelesaseUpdate</title>
+        <link rel="stylesheet"
+              href="../../../css/table.css" type="text/css">
+        <link rel="stylesheet"
+              href="../../../css/cwcalendar.css" type="text/css">
+        <script type="text/javascript"
+                src="../../../javascript/comm/comm.js">
+        </script>
+        <script type="text/javascript"
+                src="../../../javascript/comm/list.js">
+        </script>
+        <script type="text/javascript"
+                src="../../../javascript/calendar-ch.js">
+        </script>
+        <script type="text/javascript"
+                src="../../../javascript/jquery-1.7.2.js">
+        </script>
+        <script type="text/javascript"
+                src="../../../javascript/locate.js">
+        </script>
+        <script type="text/javascript"
+                src="../../../javascript/select.js">
+        </script>
+        <script type="text/javascript"
+                src="../../../javascript/comm/time.js">
+        </script>
+        <script type="text/javascript">
+ 			window.onload=check;
+		function tick() {
+			var now = new Date();
+			var hours, minutes, seconds, noon;
+			var intHours, intMinutes, intSeconds;
+			intHours = now.getHours();
+			intMinutes = now.getMinutes();
+			intSeconds = now.getSeconds();
+			if (intHours < 24) {
+				hours = intHours+":";
+				noon = "A.M.";
+			} else {
+				intHours = intHours - 24;
+				hours = intHours + ":";
+				noon = "P.M.";
+			}
+			if (intMinutes < 10) {
+				minutes = "0"+intMinutes+":";
+			} else {
+				minutes = intMinutes+":";
+			}
+			if (intSeconds < 10) {
+				seconds = "0"+intSeconds+" ";
+			} else {
+				seconds = intSeconds+" ";
+			}
+			timeString = hours+minutes+seconds;
+			var now = new Date();
+			document.getElementById("MrChangeTime").value = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + timeString;
+			window.setTimeout("tick();", 1000);
+		}
+
+		//load事件
+		function check(){
+			//获得系统当前时间的方法
+		  	tick();
+		}
+        </script>
+        <script src="~/javascript/jquery-1.7.2.js"></script>
+
+        <script src="~/javascript/vue-2.4.0.js"></script>
+      
+    </head>
+    <body>
+        <div id="sp">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <font color="black">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布变更 </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <input type="button" value="提交" class="BUTTON_STYLE1"
+                               v-on:click="update(@Model.Rows[0]["Id"])">
+                        <input type="reset" value="清除" class="BUTTON_STYLE1">
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="1" cellpadding=0 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                <tr>
+                    <td class="TD_STYLE1" width="11%">
+                        I级机构
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        <input type="hidden" name="emajorRelease.firstKindName" id="MrRegister" value="@Model.Rows[0]["MrRegister"]" />
+                        <input type="hidden" name="emajorRelease.firstKindId" id="oneId" value="@Model.Rows[0]["oneId"]" />
+                      @Model.Rows[0]["oneCodeName"]
+
+                    </td>
+                    <td width="11%" class="TD_STYLE1">
+                        II级机构
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        <input type="hidden" name="emajorRelease.secondKindName" id="MrRegistTime" value=" @Model.Rows[0]["MrRegistTime"]" />
+                        <input type="hidden" name="emajorRelease.secondKindId" id="twoId" value="@Model.Rows[0]["twoId"]" />
+                        @Model.Rows[0]["twoCodeName"]
+                    </td>
+                    <td width="11%" class="TD_STYLE1">
+                        III级机构
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" name="emajorRelease.thirdKindName" value="&#33647;&#24215;" />
+                        <input type="hidden" name="emajorRelease.thirdKindId" id="threeId" value="@Model.Rows[0]["threeId"]" />
+                        @Model.Rows[0]["threeCodeName"]
+                    </td>
+                    <td width="11%" class="TD_STYLE1">
+                        招聘类型
+                    </td>
+                    <td class="TD_STYLE2" colspan="2">
+
+                        <select name="emajorRelease.engageType" id="MrType" class="SELECT_STYLE1">
+
+                            <option value="校园招聘" selected>校园招聘</option>
+
+                            <option value="社会招聘" selected>社会招聘</option>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        职位分类
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" name="emajorRelease.majorKindName" value="&#38144;&#21806;" />
+                        <input type="hidden" name="emajorRelease.majorKindId" id="MKID" value="@Model.Rows[0]["MKID"]" />
+                        @Model.Rows[0]["MKName"]
+                    </td>
+                    <td class="TD_STYLE1">
+                        职位名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" name="emajorRelease.majorName" value="&#24635;&#32463;&#29702;" />
+                        <input type="hidden" name="emajorRelease.majorId" id="MCID" value="@Model.Rows[0]["MCID"]" />
+                        @Model.Rows[0]["CName"]
+                    </td>
+                    <td class="TD_STYLE1">
+                        招聘人数
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="emajorRelease.humanAmount" id="MrAmount" value="@Model.Rows[0]["MrAmount"]" class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        截止日期
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="emajorRelease.deadline"
+                               class="INPUT_STYLE2" onclick="aa('emajorRelease.deadline')" id="MrOverTime" value="@Model.Rows[0]["MrOverTime"]">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        变更人
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="emajorRelease.changer" id="MrChanger" value="@Model.Rows[0]["MrChanger"]" class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        变更时间
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="emajorRelease.changeTime"
+                               id="MrChangeTime"
+                               class="INPUT_STYLE2">
+                    </td>
+
+                    <td>&nbsp; </td>
+                    <td>&nbsp; </td>
+                    <td>&nbsp; </td>
+                    <td>&nbsp; </td>
+
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        职位描述
+                    </td>
+                    <td class="TD_STYLE2" colspan="8">
+                        <textarea name="emajorRelease.majorDescribe" rows="4" id="MrDescribe" cols="100%" class="TEXTAREA_STYLE1">@Model.Rows[0]["MrDescribe"]</textarea>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        招聘要求
+                    </td>
+                    <td class="TD_STYLE2" colspan="8">
+                        <textarea name="emajorRelease.engageRequired" id="MrRequired" rows="4" cols="100%" class="TEXTAREA_STYLE1">@Model.Rows[0]["MrRequired"]</textarea>
+                    </td>
+
+                </tr>
+            </table>
+            </div>
+        <script type="text/javascript">
+        var currentPage = 1;//当前页
+        var pages = 1;//总页数
+        var vm = new Vue({
+            el: "#sp", //绑定标签
+            data: {
+                nums: ""  //数据传递
+            },
+            methods: {    //函数集
+                load: function () {
+                     t = this;//把控制层赋值给t
+                    $.ajax({
+                        url: "/MajorRelease/MajorRelesaseFenYe",
+                        type: "post",
+                        data: "currentPage=" + currentPage + "&where=",
+                        success: function (msg) {
+                            var dts = eval("(" + msg + ")");
+                            var dt = dts["dt"];
+                            pages = dts["Pages"];
+                            $("#leftPage").html("共有" + dts["rows"] + "条记录，当前第" + currentPage + "/" + dts["Pages"] + "页")
+                            $("#rwo").html(dts["rows"])
+                            t.nums = dt;
+                        }
+                    });
+                },
+              first: function () {
+                    currentPage = 1;
+                    this.load()
+                },
+                back: function () {
+                    if (currentPage > 1) {
+                        currentPage--;
+                    }
+                    currentPage = 1
+                    this.load()
+                },
+                next: function () {
+                    if (currentPage <= pages) {
+                        currentPage++;
+                    }
+                    currentPage = pages;
+                    this.load()
+                },
+                last: function () {
+                    currentPage = pages;
+                    this.load()
+
+                },
+                tz: function () {
+                    currentPage = $("#currPage").val();
+                    this.load()
+
+                },
+                update: function (Id) {
+                    $.ajax({
+                        url: "/MajorRelease/MajorReleaseUpdate2",
+                        type: "post",
+                        data: "Id=" + Id + "&oneID=" + $("#oneId").val() + "&twoID=" + $("#twoId").val() + "&threeID=" + $("#threeId").val() + "&MrType=" + $("#MrType").val() + "&MKID=" + $("#MKID").val() + "&MCID=" + $("#MCID").val() + "&MrAmount=" + $("#MrAmount").val() + "&MrOverTime=" + $("#MrOverTime").val() + "&MrChanger=" + $("#MrChanger").val() + "&MrChangeTime=" + $("#MrChangeTime").val() + "&MrDescribe=" + $("#MrDescribe").val() + "&MrRequired=" + $("#MrRequired").val() + "&MrRegister=" + $("#MrRegister").val() + "&MrRegistTime=" + $("#MrRegistTime").val(),
+                        success: function (msg) {
+                            var dts = eval("(" + msg + ")");
+                            if (dts > 0) {
+                                alert("变更成功")
+                                location.href = '/MajorRelease/MajorReleaseUpdateIndex'
+                            } else {
+                                alert("变更失败")
+                            }
+                        }
+                    });
+                }
+            },
+
+            created: function () {   //页面加载方法
+                
+            }
+        });
+        </script>
+    </body>
+
+</html>
+

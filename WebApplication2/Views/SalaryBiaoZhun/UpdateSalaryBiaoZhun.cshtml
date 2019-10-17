@@ -1,0 +1,270 @@
+﻿@model SalaryBiaoZhunModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SalaryBiaoZhunDengJiIndex</title>
+    <link rel="stylesheet" href="../../css/table.css" type="text/css" />
+    <script type="text/javascript" src="../../javascript/comm/comm.js"></script>
+    <script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
+    <script src="~/javascript/jquery-1.7.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+    <title>无标题文档</title>
+</head>
+<body>
+    <div id="sp">
+        <table width="100%">
+            <tr>
+                <td>
+                    <font color="black">
+                        您正在做的业务是：人力资源--薪酬标准管理--薪酬标准登记
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="button" value="重新提交" v-on:click="update(@Model.Id)" class="BUTTON_STYLE1">
+                    <input type="reset" value="返 回" class="BUTTON_STYLE1">
+                </td>
+            </tr>
+        </table>
+        <table id="stable" width="100%" border="1" cellpadding=0 cellspacing=1
+               bordercolorlight=#848284 bordercolordark=#eeeeee
+               class="TABLE_STYLE1">
+            <tr>
+                <td width="74" class="TD_STYLE1">
+                    薪酬标准编号
+                </td>
+                <td width="168" class="TD_STYLE2">
+                    <input type="text" name="standard.standardId" readonly="readonly" value="@Model.SBZBianHao" id="SBZBianHao" class="INPUT_STYLE2">
+                </td>
+                <td width="83" class="TD_STYLE1">
+                    薪酬标准名称
+                </td>
+                <td width="171" class="TD_STYLE2">
+                    <input type="text" name="standard.standardName" value="@Model.SBZName" id="SBZName" class="INPUT_STYLE2">
+                </td>
+                <td width="170" class="TD_STYLE1">
+                    薪酬总额
+                </td>
+                <td width="138" class="TD_STYLE2">
+                    <input type="text" name="standard.salarySum" id="SBZZongE" value="@Model.SBZZongE" readonly="readonly" class="INPUT_STYLE2" />
+                </td>
+                <td width="103" class="TD_STYLE1">
+                    &nbsp;
+                </td>
+                <td width="95" height="26" class="TD_STYLE2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    制定人
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" id="SBZZhiDingRen" name="SBZZhiDingRen" value="@Model.SBZZhiDingRen" class="INPUT_STYLE2">
+                </td>
+                <td class="TD_STYLE1">
+                    更改人
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" name="SBZBianGengRen" readonly id="SBZBianGengRen" class="INPUT_STYLE2">
+                </td>
+                <td class="TD_STYLE1">
+                    更改时间
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" id="SBZBianGenTime" name="SBZBianGenTime" readonly="readonly" class="INPUT_STYLE2">
+                </td>
+                <td class="TD_STYLE1">
+                    &nbsp;
+                </td>
+                <td class="TD_STYLE2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    备注
+                </td>
+                <td colspan="7" class="TD_STYLE2">
+                    <textarea name="standard.remark" id="SBZBeiZhu" rows="4" class="TEXTAREA_STYLE1">@Model.SBZBeiZhu</textarea>
+                </td>
+            </tr>
+            <tr class="TD_STYLE1">
+                <td align="center">
+                    序号
+                </td>
+                <td colspan="3">
+                    薪酬项目名称
+                </td>
+                <td>
+                    金额
+                </td>
+                <td colspan="3">
+                    &nbsp;
+                </td>
+            </tr>
+            <tbody>
+
+                <tr class="TD_STYLE2" id="je">
+                    <td align="center">
+                        @Model.SalaryChuCaiID
+                        <input type="hidden" name="details[0].itemId" id="SalaryChuCaiID" value="@Model.SalaryChuCaiID">
+                    </td>
+                    <td colspan="3">
+                        @Model.SalaryChuCai
+                        <input type="hidden" id="SalaryChuCai" name="details[0].itemName" value="@Model.SalaryChuCai">
+                    </td>
+                    <td>
+                        <input type="text" id="SBZChuCaiJinE" value="@Model.SBZChuCaiJinE" name="details[0].salary" v-on:change="jegb()"
+                               @*onkeyup="countMoney(@Model.Count, 'SBZJinE')"*@ class="INPUT_STYLE2">
+                    </td>
+                    <td colspan="3">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr class="TD_STYLE2" id="je">
+                    <td align="center">
+                        @Model.SalaryJiaoTongID
+                        <input type="hidden" name="details[0].itemId" id="SalaryJiaoTongID" value="@Model.SalaryJiaoTongID">
+                    </td>
+                    <td colspan="3">
+                        @Model.SalaryJiaoTong
+                        <input type="hidden" id="SalaryJiaoTong" name="details[0].itemName" value="@Model.SalaryJiaoTong">
+                    </td>
+                    <td>
+                        <input type="text" id="SBZJiaoTongJinE" value="@Model.SBZJiaoTongJinE" name="details[0].salary" v-on:change="jegb()"
+                               @*onkeyup="countMoney(@Model.Count, 'SBZJinE')"*@ class="INPUT_STYLE2">
+                    </td>
+                    <td colspan="3">
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+
+        var vm = new Vue({
+            el: "#sp", //绑定标签
+            data: {
+                nums: ""  //数据传递
+            },
+            methods: {    //函数集
+                update: function (Id) {
+                    $.ajax({
+                        url: "/SalaryBiaoZhun/SalaryBiaoZhunFuHeUpdate",
+                        type: "post",
+                        data: "Id=" + Id + "&SBZBianHao=" + $("#SBZBianHao").val() + "&SalaryChuCai=" + $("#SalaryChuCai").val() + "&SalaryChuCaiID=" + $("#SalaryChuCaiID").val() + "&SBZChuCaiJinE=" + $("#SBZChuCaiJinE").val() + "&SalaryJiaoTong=" + $("#SalaryJiaoTong").val() + "&SalaryJiaoTongID=" + $("#SalaryJiaoTongID").val() + "&SBZJiaoTongJinE=" + $("#SBZJiaoTongJinE").val() + "&SBZZongE=" + $("#SBZZongE").val() + "&SBZName=" + $("#SBZName").val() + "&SBZZhiDingRen=" + $("#SBZZhiDingRen").val() + "&SBZBianGengRen=" + $("#SBZBianGengRen").val() + "&SBZBianGenTime=" + $("#SBZBianGenTime").val() + "&SBZBeiZhu=" + $("#SBZBeiZhu").val(),
+                        success: function (msg) {
+                            var dts = eval("(" + msg + ")");
+                            if (dts) {
+                                alert("更改成功")
+                                location.href = '/SalaryBiaoZhun/SalaryBiaoZhunCxUpdateShow'
+                            } else {
+                                alert("更改失败")
+                            }
+                        }
+                    });
+                },
+                jegb: function () {
+                    var nums = 0
+                    $("#stable tbody #je").each(function () {
+                        var num1 = $(this).find("input:text:eq(0)").val();
+                        nums += Number(num1);
+                        $("#SBZZongE").val(nums)
+                    })
+                }
+            },
+            created: function () {   //页面加载方法
+
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+		function check(){
+
+				var designer=document.getElementById("designer");
+				var standardName=document.getElementById("standardName");
+				if(designer.value.length<=0){
+				alert("制定人不可为空!!!");
+						return ;
+				}
+				if(standardName.value.length<=0){
+				alert("薪酬标准名称不可为空!!!");
+					return ;
+				}
+			document.forms[0].submit();
+		}
+		function countMoney(obj,o) {
+
+		if (isNaN(document.getElementById(o).value) || document.getElementById(o).value < 0) {
+		alert("金额填写错误!");
+		document.getElementById(o).value="0.00";
+		return;
+	}
+		var sum=0;
+	 	for(var i=1;i<=obj;i++){
+	 		var salary=document.getElementById("salary"+i).value;
+	 		if(salary==""){
+	 		salary="0.00";
+	 		}
+	 		sum=Number(sum)+Number(salary);
+
+	 }
+	 document.getElementById("sumSalary").value=sum;
+
+}
+		function time(){
+		    var tdate = document.getElementById("SBZBianGenTime");
+ 					var d=new Date();
+ 					var y=d.getFullYear();
+ 					var moth=d.getMonth()+1;
+ 					var date=d.getDate();
+ 					var h=d.getHours();
+ 					var m=d.getMinutes();
+ 					var s=d.getSeconds();
+					var hh=20-1-h;
+					var mm=60-1-m;
+					var ss=60-s;
+					if(hh>0){
+							mm=mm+60*hh;
+					}
+ 					if(moth<10){
+ 							moth="0"+moth;
+ 					}
+ 					if(date<10){
+ 							date="0"+date;
+ 					}
+ 					if(h<10){
+ 							h="0"+h;
+ 					}
+ 					if(m<10){
+ 							m="0"+m;
+ 					}
+ 					if(s<10){
+ 							s="0"+s;
+ 					}
+ 					if(mm<10){
+ 							mm="0"+mm;
+ 					}
+ 					if(ss<10){
+ 							ss="0"+ss;
+ 					}
+
+ 					tdate.value=y+"-"+moth+"-"+date+" "+h+":"+m+":"+s;
+
+ 				}
+ 				window.onload=time;
+ 				var out=window.setInterval(time, 1000);
+    </script>
+
+</body>
+</html>

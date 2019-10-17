@@ -49,21 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configer\EngageTypeConfig.cs" />
+    <Compile Include="Configer\JlConfiger.cs" />
+    <Compile Include="Configer\LuYongConfig.cs" />
     <Compile Include="Configer\MajorChenConfig.cs" />
-    <Compile Include="Configer\MajorConfig.cs" />
+    <Compile Include="Configer\MajorCondiger.cs" />
     <Compile Include="Configer\MajorKindConfig.cs" />
+    <Compile Include="Configer\MajorReleaseConfiger.cs" />
+    <Compile Include="Configer\MianShiConfiger.cs" />
     <Compile Include="Configer\oneorganizationConfiger.cs" />
     <Compile Include="Configer\PublicCharConfiger.cs" />
+    <Compile Include="Configer\SalaryBiaoZhunConfiger.cs" />
     <Compile Include="Configer\SalaryConfiger.cs" />
     <Compile Include="Configer\threeorganizationConfiger.cs" />
     <Compile Include="Configer\twoorganizationConfiger.cs" />
     <Compile Include="Configer\UserConfiger.cs" />
-    <Compile Include="Entity\Major.cs" />
+    <Compile Include="Entity\EngageType.cs" />
+    <Compile Include="Entity\Jl.cs" />
+    <Compile Include="Entity\LuYong.cs" />
+    <Compile Include="Entity\MajorZW.cs" />
     <Compile Include="Entity\MajorChen.cs" />
     <Compile Include="Entity\MajorKind.cs" />
+    <Compile Include="Entity\MajorRelease.cs" />
+    <Compile Include="Entity\MianShi.cs" />
     <Compile Include="Entity\oneorganization.cs" />
     <Compile Include="Entity\PublicChar.cs" />
     <Compile Include="Entity\Salary.cs" />
+    <Compile Include="Entity\SalaryBiaoZhun.cs" />
     <Compile Include="Entity\threeorganization.cs" />
     <Compile Include="Entity\twoorganization.cs" />
     <Compile Include="Entity\User.cs" />

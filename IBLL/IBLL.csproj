@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMajorBLL.cs" />
+    <Compile Include="IJlBLL.cs" />
+    <Compile Include="ILuYongBLL.cs" />
     <Compile Include="IMajorChenBLL.cs" />
     <Compile Include="IMajorKindBLL.cs" />
+    <Compile Include="IMajorReleaseBLL.cs" />
+    <Compile Include="IMianShiBLL.cs" />
     <Compile Include="IoneorganizationBLL.cs" />
     <Compile Include="IPublicCharBLL.cs" />
+    <Compile Include="ISalaryBiaoZhunBLL.cs" />
     <Compile Include="ISalaryBLL.cs" />
     <Compile Include="IStudentBLL.cs" />
     <Compile Include="IthreeorganizationBLL.cs" />
@@ -53,6 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EF\EF.csproj">
+      <Project>{32ab14a0-d786-428a-af6d-da36cfccde41}</Project>
+      <Name>EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{E57AB234-D22C-42E5-AD0C-FE54845AE157}</Project>
       <Name>Model</Name>

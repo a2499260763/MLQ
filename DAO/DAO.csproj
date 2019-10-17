@@ -44,11 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBHelper.cs" />
+    <Compile Include="EngageTypeDAO.cs" />
+    <Compile Include="JlDAO.cs" />
+    <Compile Include="LuYongDAO.cs" />
     <Compile Include="MajorChenDAO.cs" />
-    <Compile Include="MajorDAO.cs" />
     <Compile Include="MajorKindDAO.cs" />
+    <Compile Include="MajorReleaseDAO.cs" />
+    <Compile Include="MianShiDAO.cs" />
     <Compile Include="oneorganizationDAO.cs" />
     <Compile Include="PublicCharDAO.cs" />
+    <Compile Include="SalaryBiaoZhunDAO.cs" />
     <Compile Include="SalaryDAO.cs" />
     <Compile Include="StudenDAO.cs" />
     <Compile Include="DaoBase.cs" />

@@ -695,11 +695,7 @@
     <Content Include="Views\twoorganization\inserttwo.cshtml" />
     <Content Include="Views\twoorganization\Selecttwo.cshtml" />
     <Content Include="Views\twoorganization\SelectWheretwo.cshtml" />
-    <Content Include="Views\Client\MajorChenIndex.cshtml" />
-    <Content Include="Views\Client\MajorIndex.cshtml" />
-    <Content Include="Views\Client\MajorKindIndex.cshtml" />
-    <Content Include="Views\Client\MajorKindInsert.cshtml" />
-    <Content Include="Views\Client\MajorInsert.cshtml" />
+    <Content Include="Views\Main\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

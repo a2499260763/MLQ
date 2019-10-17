@@ -10,6 +10,7 @@ using IBLL;
 using System.Configuration;
 using Microsoft.Practices.Unity.Configuration;
 using Model;
+
 namespace Ioc
 {
     public class IocCreate
@@ -25,7 +26,7 @@ namespace Ioc
         {
             UnityContainer ioc = new UnityContainer();
             ExeConfigurationFileMap ef = new ExeConfigurationFileMap();
-            ef.ExeConfigFilename = @"D:\kelong\WebApplication1\Unity.config";
+            ef.ExeConfigFilename = @"D:\kelong\WebApplication2\Unity.config";
             Configuration cf = ConfigurationManager.OpenMappedExeConfiguration(ef, ConfigurationUserLevel.None);
             UnityConfigurationSection cs = cf.GetSection("unity") as UnityConfigurationSection;
             ioc.LoadConfiguration(cs, "containerTwo");
