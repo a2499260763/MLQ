@@ -1,0 +1,230 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MajorReleaseAddIndex</title>
+    <link rel="stylesheet"
+          href="../../../css/table.css" type="text/css">
+    <link rel="stylesheet"
+          href="../../../css/cwcalendar.css" type="text/css">
+    <script type="text/javascript"
+            src="../../../javascript/comm/comm.js">
+    </script>
+    <script type="text/javascript"
+            src="../../../javascript/comm/list.js">
+    </script>
+    <script type="text/javascript"
+            src="../../../javascript/calendar-ch.js">
+    </script>
+    <script type="text/javascript"
+            src="../../../javascript/jquery-1.7.2.js">
+    </script>
+    <script type="text/javascript"
+            src="../../../javascript/locate.js">
+    </script>
+    <script type="text/javascript"
+            src="../../../javascript/select.js">
+    </script>
+    
+    <script type="text/javascript">
+
+            window.onload = check;
+            function tick() {
+                var now = new Date();
+                var hours, minutes, seconds, noon;
+                var intHours, intMinutes, intSeconds;
+                intHours = now.getHours();
+                intMinutes = now.getMinutes();
+                intSeconds = now.getSeconds();
+                if (intHours < 24) {
+                    hours = intHours + ":";
+                    noon = "A.M.";
+                } else {
+                    intHours = intHours - 24;
+                    hours = intHours + ":";
+                    noon = "P.M.";
+                }
+                if (intMinutes < 10) {
+                    minutes = "0" + intMinutes + ":";
+                } else {
+                    minutes = intMinutes + ":";
+                }
+                if (intSeconds < 10) {
+                    seconds = "0" + intSeconds + " ";
+                } else {
+                    seconds = intSeconds + " ";
+                }
+                timeString = hours + minutes + seconds;
+                var now = new Date();
+                document.getElementById("MrRegistTime").value = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + timeString;
+                window.setTimeout("tick();", 1000);
+            }
+
+            //load事件
+            function check() {
+                //获得系统当前时间的方法
+                tick();
+            }
+
+            $(document).on("focus", "#MrOverTime", function () {
+                WdatePicker();
+            })
+
+		
+    </script>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+    <script src="~/javascript/DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+   <div id="sp">
+        <table width="100%">
+            <tr>
+                <td>
+                    <font color="black">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布登记 </font>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="button" value="提交" class="BUTTON_STYLE1"
+                           v-on:click="insert()">
+                    <input type="reset" value="清除" class="BUTTON_STYLE1">
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellpadding=0 cellspacing=1
+               bordercolorlight=#848284 bordercolordark=#eeeeee
+               class="TABLE_STYLE1">
+            <tr>
+                <td class="TD_STYLE1" width="11%">
+                    I级机构
+                </td>
+                <td width="14%" class="TD_STYLE2">
+                    @Html.DropDownList("oneID", ViewBag.one as IEnumerable<SelectListItem> , new { @class="SELECT_STYLE1" , @id= "oneID" })
+                </td>
+                <td width="11%" class="TD_STYLE1">
+                    II级机构
+                </td>
+                <td width="14%" class="TD_STYLE2">
+                   @Html.DropDownList("twoID", ViewBag.two as IEnumerable<SelectListItem>, new { @class = "SELECT_STYLE1", @id = "twoID" })
+                </td>
+                <td width="11%" class="TD_STYLE1">
+                    III级机构
+                </td>
+                <td class="TD_STYLE2">
+                    @Html.DropDownList("threeID", ViewBag.three as IEnumerable<SelectListItem>, new { @class = "SELECT_STYLE1", @id = "threeID" })
+                </td>
+                <td width="11%" class="TD_STYLE1">
+                    招聘类型
+                </td>
+                <td class="TD_STYLE2" colspan="2">
+                    @Html.DropDownList("MrType", ViewBag.type as IEnumerable<SelectListItem>, new { @class = "SELECT_STYLE1", @id = "MrType" })
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    职位分类
+                </td>
+                <td class="TD_STYLE2">
+                    @Html.DropDownList("MKID", ViewBag.kk as IEnumerable<SelectListItem>, new { @class = "SELECT_STYLE1", @id = "MKID" })
+                </td>
+                <td class="TD_STYLE1">
+                    职位名称
+                </td>
+                <td class="TD_STYLE2">
+                    @Html.DropDownList("MCID", ViewBag.cc as IEnumerable<SelectListItem>, new { @class = "SELECT_STYLE1", @id = "MCID" })
+                </td>
+                <td class="TD_STYLE1">
+                    招聘人数
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" name="emajorRelease.humanAmount" id="MrAmount" class="INPUT_STYLE2">
+                </td>
+                <td class="TD_STYLE1">
+                    截止日期
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" name="item.str_startTime" readonly
+                           class="INPUT_STYLE2" id="MrOverTime">
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    登记人
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" id="MrRegister" name="emajorRelease.register" value="admin" class="INPUT_STYLE2">
+                </td>
+                <td class="TD_STYLE1">
+                    登记时间
+                </td>
+                <td class="TD_STYLE2">
+
+                    <input type="text" name="emajorRelease.registTime"
+                           id="MrRegistTime" readonly="readonly"
+                           class="INPUT_STYLE2">
+                </td>
+
+                <td>&nbsp; </td>
+                <td>&nbsp; </td>
+                <td>&nbsp; </td>
+                <td>&nbsp; </td>
+
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    职位描述
+                </td>
+                <td class="TD_STYLE2" colspan="8">
+                    <textarea name="emajorRelease.majorDescribe" id="MrDescribe" rows="4" cols="80" class="TEXTAREA_STYLE1"></textarea>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    招聘要求
+                </td>
+                <td class="TD_STYLE2" colspan="8">
+                    <textarea name="emajorRelease.engageRequired" id="MrRequired" rows="4" cols="80" class="TEXTAREA_STYLE1"></textarea>
+                </td>
+
+            </tr>
+        </table>
+</div>
+    <script type="text/javascript">  
+        var vm = new Vue({
+            el: "#sp", //绑定标签
+            data: {
+                nums: ""  //数据传递
+            },
+            methods: {    //函数集饿就很烦，
+            
+                insert: function () {
+                    $.ajax({
+                        url: "/MajorRelease/MajorReleaseInsertIndex",
+                        type: "post",
+                        data: "oneID="+$("#oneID").val()+"&twoID="+$("#twoID").val()+"&threeID="+$("#threeID").val()+"&MrType="+$("#MrType").val()+"&MKID="+$("#MKID").val()+"&MCID="+$("#MCID").val()+"&MrAmount="+$("#MrAmount").val()+"&MrOverTime="+$("#MrOverTime").val()+"&MrRegister="+$("#MrRegister").val()+"&MrRegistTime="+$("#MrRegistTime").val()+"&MrDescribe="+$("#MrDescribe").val()+"&MrRequired="+$("#MrRequired").val(),
+                        success: function (msg) {
+                            var dts = eval("(" + msg + ")");
+                            if (dts>0) {
+                                alert("发布成功")
+                                location.href='/MajorRelease/MajorReleaseUpdateIndex'
+                            }else{
+                                alert("发布失败")
+                            }
+                        }
+                    });
+                } 
+            },
+        });
+    </script>
+</body>
+
+</html>
