@@ -697,6 +697,7 @@
     <Content Include="Views\twoorganization\inserttwo.cshtml" />
     <Content Include="Views\twoorganization\Selecttwo.cshtml" />
     <Content Include="Views\twoorganization\SelectWheretwo.cshtml" />
+    <Content Include="Views\Main\View.cshtml" />
     <Content Include="Views\Client\MajorChenIndex.cshtml" />
     <Content Include="Views\Client\MajorIndex.cshtml" />
     <Content Include="Views\Client\MajorKindIndex.cshtml" />

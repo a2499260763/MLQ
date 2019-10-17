@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.Remoting.Messaging;
@@ -19,6 +20,7 @@ namespace DAO
             if (db==null)
             {
                 db = new MyDbContext();
+                db.Configuration.ValidateOnSaveEnabled = false;
                 CallContext.SetData("s", db);
             }
             return db;
@@ -44,31 +46,43 @@ namespace DAO
                 ObjContext.Detach(objT);
             }
         }
+        public int i;
+        DbEntityValidationException ex;
         public int Add(T t)
         {
-            MyDbContext db = CreateContext();   
+            MyDbContext db = CreateContext();
             db.Set<T>().Add(t);
-            return db.SaveChanges();
+          
+            try
+            {
+                 i= db.SaveChanges();
+                // 写数据库
+               
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                ex = dbEx;
+            }
+         
+            return i;
         }
 
         public int Update(T t) {
 
             MyDbContext db = CreateContext();
-            FenLi(t);
             db.Set<T>().Attach(t);
             db.Entry<T>(t).State= System.Data.Entity.EntityState.Modified;
             return db.SaveChanges();
         }
         public int Delete(T t) {
             MyDbContext db = CreateContext();
-            FenLi(t);
             db.Set<T>().Attach(t);
             db.Entry<T>(t).State = System.Data.Entity.EntityState.Deleted;
             return db.SaveChanges();
 
         }
 
-        public List<T> Select() {
+        public static List<T> Select() {
 
          return CreateContext().Set<T>()
                 .AsNoTracking()
