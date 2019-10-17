@@ -46,6 +46,7 @@
     <Compile Include="MajorKindModel.cs" />
     <Compile Include="MajorModel.cs" />
     <Compile Include="Major_changeModel.cs" />
+    <Compile Include="MajorModel.cs" />
     <Compile Include="oneorganizationModel.cs" />
     <Compile Include="PopedomsModel.cs" />
     <Compile Include="PublicCharModel.cs" />

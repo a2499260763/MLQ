@@ -707,6 +707,11 @@
     <Content Include="Views\Jurisdiction\SelectRole.cshtml" />
     <Content Include="Views\Jurisdiction\RoleAdd.cshtml" />
     <Content Include="Views\Jurisdiction\SelectWheretwo.cshtml" />
+    <Content Include="Views\Client\MajorChenIndex.cshtml" />
+    <Content Include="Views\Client\MajorIndex.cshtml" />
+    <Content Include="Views\Client\MajorKindIndex.cshtml" />
+    <Content Include="Views\Client\MajorKindInsert.cshtml" />
+    <Content Include="Views\Client\MajorInsert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,7 @@ namespace DAO
 {
    public class DBHelper
     {
-        static string conStr = @"Data Source=.;Initial Catalog=T6;Integrated Security=True";
+        static string conStr = @"Data Source=.;Initial Catalog=HRDB;Integrated Security=True";
 
         public static void WriteLog(Exception ex)
         {

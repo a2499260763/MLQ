@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ioc;
+using locContatiner;
 using IDAO;
 using IBLL;
 using EF;
@@ -14,7 +14,7 @@ namespace BLL
 {
     public class MajorChenBLL : IMajorChenBLL
     {
-        IMajorChenDAO im = Ioc.IocCreate.CreateDao<IMajorChenDAO, MajorChenDAO>();
+        IMajorChenDAO im = IocContatiner.CreateDao<IMajorChenDAO, MajorChenDAO>();
 
         public int DeleMajorChen(MajorChenModel Id)
         {
