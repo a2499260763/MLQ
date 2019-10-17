@@ -45,8 +45,11 @@
     <Compile Include="MajorChenModel.cs" />
     <Compile Include="MajorKindModel.cs" />
     <Compile Include="MajorModel.cs" />
+    <Compile Include="Major_changeModel.cs" />
     <Compile Include="oneorganizationModel.cs" />
+    <Compile Include="PopedomsModel.cs" />
     <Compile Include="PublicCharModel.cs" />
+    <Compile Include="RoleModel.cs" />
     <Compile Include="SalaryModel.cs" />
     <Compile Include="StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

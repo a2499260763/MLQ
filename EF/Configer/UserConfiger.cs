@@ -16,6 +16,8 @@ namespace EF.Configer
             this.Property(e=>e.user_name).HasMaxLength(60);
             this.Property(e => e.user_password).HasMaxLength(60);
             this.Property(e => e.user_true_name).HasMaxLength(60);
+            this.Property(e => e.Role_id);
+            this.Property(e => e.Role_Name).HasMaxLength(60);
         }
     }
 }

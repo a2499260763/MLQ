@@ -172,12 +172,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JurisdictionController.cs" />
     <Compile Include="Controllers\LiangController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\oneorganizationController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\threeorganizationController.cs" />
+    <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Controllers\twoorganizationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -700,9 +702,15 @@
     <Content Include="Views\Client\MajorKindIndex.cshtml" />
     <Content Include="Views\Client\MajorKindInsert.cshtml" />
     <Content Include="Views\Client\MajorInsert.cshtml" />
+    <Content Include="Views\Jurisdiction\Selectlist.cshtml" />
+    <Content Include="Views\Jurisdiction\user_add.cshtml" />
+    <Content Include="Views\Jurisdiction\SelectRole.cshtml" />
+    <Content Include="Views\Jurisdiction\RoleAdd.cshtml" />
+    <Content Include="Views\Jurisdiction\SelectWheretwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Transfer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -48,11 +48,16 @@ namespace BLL
             return iub.UserSelect();
         }
 
+        public List<UserModel> UsersmanFenYe(int currentPage, int PageSize, out int rows)
+        {
+            return iub.UsersmanFenYe(currentPage, PageSize, out rows);
+        }
+
         public int UserUpdate(UserModel sm)
         {
             return iub.UserUpdate(sm);
         }
 
-        //////111
+        
     }
 }

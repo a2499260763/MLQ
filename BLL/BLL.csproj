@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,8 +44,10 @@
     <Compile Include="MajorBLL.cs" />
     <Compile Include="MajorChenBLL.cs" />
     <Compile Include="MajorKindBLL.cs" />
+    <Compile Include="Major_changeBLL.cs" />
     <Compile Include="oneorganizationBLL.cs" />
     <Compile Include="PublicCharBLL.cs" />
+    <Compile Include="RoleBLL.cs" />
     <Compile Include="SalaryBLL.cs" />
     <Compile Include="StudentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

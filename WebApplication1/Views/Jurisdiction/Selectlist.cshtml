@@ -1,0 +1,197 @@
+﻿@model UserModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>用户管理</title>
+    <link rel="stylesheet"
+          href="../../css/table.css" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+    @*<script type="text/javascript">
+			function doDelete(id) {
+				if (confirm("确定删除此用户吗？")) {
+					location.href = "success.html?users.userId=" + id;
+				}
+			}
+    </script>*@
+</head>
+<body>
+    <div  id="zh"> 
+        <table width="100%">
+            <tr>
+                <td>
+                    <font color="black">您正在做的业务是：人力资源--权限管理--用户管理 </font>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    当前角色总数：{{JueNum}}例
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="button" value="添加用户" class="BUTTON_STYLE1" v-on:click="addtwo()">
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellpadding=5 cellspacing=1
+               bordercolorlight=#848284 bordercolordark=#eeeeee
+               class="TABLE_STYLE1">
+            <tr class="TR_STYLE1">
+                <td class="TD_STYLE1">
+                    用户编号
+                </td>
+                <td class="TD_STYLE1">
+                    用户名称
+                </td>
+                <td class="TD_STYLE1">
+                    真实姓名
+                </td>
+                <td class="TD_STYLE1">
+                    用户密码
+                </td>
+                <td class="TD_STYLE1">
+                    用户身份
+                </td>
+                <td class="TD_STYLE1">
+                    操作
+                </td>
+            </tr>
+
+            <tr class="TR_STYLE2" v-for="(item,i) in nums">
+                <td class="TD_STYLE2">
+                    
+                    {{item.user_id}}
+                </td>
+                <td class="TD_STYLE2">
+                    
+                    {{item.user_name}}
+                </td>
+                <td class="TD_STYLE2">
+                    
+                    {{item.user_true_name}}
+
+                </td>
+                <td class="TD_STYLE2">
+                    {{item.user_password}}
+                    
+                </td>
+                <td class="TD_STYLE2">
+                    {{item.Role_Name}}
+                    
+                </td>
+                <td class="TD_STYLE2">
+                    <img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" v-on:click="Updatetwo(item.user_id)" />
+                    <img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" v-on:click="sc(item.user_id)" />
+                </td>
+            </tr>
+            @*<tr class="TR_STYLE2">
+            <td class="TD_STYLE2">
+                9
+            </td>
+            <td class="TD_STYLE2">
+                better_admin
+            </td>
+            <td class="TD_STYLE2">
+                zhangsan
+            </td>
+            <td class="TD_STYLE2">
+                123123
+            </td>
+            <td class="TD_STYLE2">
+                系统管理员
+            </td>
+            <td class="TD_STYLE2">
+                <img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='user_edit.html'" />
+                <img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;" onclick="doDelete(9)" />
+            </td>
+        </tr>*@
+
+        </table>
+        <p style="text-align:center;">
+            <a v-on:click="Prev">上一页</a>
+            {{currentPage}}
+            <a v-on:click="Next">下一页</a> &nbsp;&nbsp;&nbsp;
+        </p>
+    </div>
+    <script type="text/javascript">
+        var va = new Vue({
+            el: "#zh",
+            data: {
+                nums: "",
+                rows: 0,
+                currentPage: 1,
+                PageSize: 3,
+                pages: 0,
+                JueNum:1,
+            },
+            methods: {
+                FenYe: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "../Jurisdiction/Index2",
+                        type: "post",
+                        data: "currentPage=" + t.currentPage + "&PageSize=" + t.PageSize,
+                        success: function (rs) {
+                            t.nums = eval("(" + rs + ")");
+                            $.ajax({
+                                url: "../Jurisdiction/GetRow",
+                                type: "post",
+                                success: function (rs) {
+                                    t.rows = rs;
+                                    t.pages = Math.ceil(t.rows / t.PageSize);
+                                }
+                            });
+                        }
+                    });
+                },
+                Next: function () {
+                    if (this.currentPage + 1 <= this.pages) {
+                        this.currentPage += 1;
+                    }
+                    this.FenYe();
+                },
+                Prev: function () {
+                    if (this.currentPage - 1 >= 1) {
+                        this.currentPage -= 1;
+                    }
+                    this.FenYe();
+                },
+                sc: function (id) {
+                    if (confirm("确定删除此用户吗？")) {
+                        alert("删除成功")
+                        location = "../Jurisdiction/Del/" + id;
+                    }
+                },
+                Updatetwo: function (twoID) {
+                    location.href = '../Jurisdiction/SelectWheretwo/' + twoID;
+                },
+                addtwo: function () {
+                    location.href = '../Jurisdiction/user_add';
+                },
+                Jueshu: function () {
+                    var t=this
+                    $.ajax({
+                        url: "../Jurisdiction/Jueshu",
+                        type: "get",
+                        success: function (msg) {
+                          
+                            t.JueNum = eval("" + msg + "");
+                        }
+                    });
+                }
+            },
+            created: function () {
+                this.FenYe();
+                this.Jueshu();
+            }
+        })
+    </script>
+</body>
+</html>

@@ -33,5 +33,10 @@ namespace EF
         public DbSet<twoorganization> twoorganization { get; set; }
         public DbSet<threeorganization> threeorganization { get; set; }
 
+        public DbSet<Role> Role { get; set; }
+
+        public DbSet<Major_change> Major_change { get; set; }
+
+
     }
 }

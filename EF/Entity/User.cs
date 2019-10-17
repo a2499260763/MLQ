@@ -14,6 +14,8 @@ namespace EF.Entity
         public string user_true_name { get; set; }
         public string user_password { get; set; }
 
+        public int Role_id { get; set; }
 
+        public string Role_Name { get; set; }
     }
 }
