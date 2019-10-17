@@ -42,15 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EngageTypeModel.cs" />
+    <Compile Include="JlMondel.cs" />
+    <Compile Include="LuYongModel.cs" />
     <Compile Include="MajorChenModel.cs" />
     <Compile Include="MajorKindModel.cs" />
     <Compile Include="MajorModel.cs" />
     <Compile Include="Major_changeModel.cs" />
     <Compile Include="MajorModel.cs" />
+    <Compile Include="MajorZWModel.cs" />
+    <Compile Include="MajorReleaseModel.cs" />
+    <Compile Include="MianShiModel.cs" />
     <Compile Include="oneorganizationModel.cs" />
     <Compile Include="PopedomsModel.cs" />
     <Compile Include="PublicCharModel.cs" />
     <Compile Include="RoleModel.cs" />
+    <Compile Include="SalaryBiaoZhunModel.cs" />
     <Compile Include="SalaryModel.cs" />
     <Compile Include="StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

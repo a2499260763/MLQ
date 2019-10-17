@@ -12,5 +12,7 @@ namespace IDAO
         List<MajorChenModel> SelectMajorChen();
 
         int DeleMajorChen(MajorChenModel Id);
+
+
     }
 }
