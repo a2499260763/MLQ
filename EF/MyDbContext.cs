@@ -37,6 +37,7 @@ namespace EF
         public DbSet<threeorganization> threeorganization { get; set; }
         public DbSet<resource> resource { get; set; }
         public DbSet<MajorWei> MajorWei { get; set; }
+        //public DbSet<grant> grant { get; set; }
 
     }
 }

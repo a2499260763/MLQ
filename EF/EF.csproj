@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configer\grantConfig.cs" />
     <Compile Include="Configer\MajorChenConfig.cs" />
     <Compile Include="Configer\MajorConfig.cs" />
     <Compile Include="Configer\MajorKindConfig.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Configer\threeorganizationConfiger.cs" />
     <Compile Include="Configer\twoorganizationConfiger.cs" />
     <Compile Include="Configer\UserConfiger.cs" />
+    <Compile Include="Entity\grant.cs" />
     <Compile Include="Entity\Major.cs" />
     <Compile Include="Entity\MajorChen.cs" />
     <Compile Include="Entity\MajorKind.cs" />

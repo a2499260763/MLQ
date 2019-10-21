@@ -27,6 +27,10 @@ namespace WebApplication1.Controllers
         IMajorWeiBLL iwei = IocCreate.CreateBLL<IMajorWeiBLL>("MajorWeiBLL");
         IMajorChenBLL ichen = IocCreate.CreateBLL<IMajorChenBLL>("MajorChenBLL");
         // GET: resource
+        public ActionResult SelectMianshi()
+        {
+            return View("SelectMianshi");
+        }
         public ActionResult Insertresource()
         {
             string bian = DateTime.Now.ToString("yyMMddmmss") + new Random().Next(100, 999);
