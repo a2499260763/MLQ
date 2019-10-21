@@ -9,7 +9,7 @@ using DAO;
 using IBLL;
 using System.Configuration;
 using Microsoft.Practices.Unity.Configuration;
-using model;
+using Model;
 namespace Ioc
 {
     public class IocCreate

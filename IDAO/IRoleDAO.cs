@@ -19,5 +19,8 @@ namespace IDAO
         List<RoleModel> RoleFenYe<K>(int currentPage, int PageSize, out int rows);
 
         List<RoleModel> RolesmanFenYe(int currentPage, int PageSize, out int rows);
+
+        int Adds(int id, int Tid);
+        int dels(int Tid);
     }
 }

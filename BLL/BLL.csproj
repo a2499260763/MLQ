@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessBLL.cs" />
     <Compile Include="JlBLL.cs" />
+    <Compile Include="MajorBLL.cs" />
     <Compile Include="MajorChenBLL.cs" />
     <Compile Include="MajorKindBLL.cs" />
     <Compile Include="MajorReleaseBLL.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
-using locContatiner;
+using Ioc;
 using IDAO;
 using DAO;
 using EF;
@@ -14,7 +14,7 @@ namespace BLL
 {
     public class MajorKindBLL : IMajorKindBLL
     {
-        IMajorKindDAO im = IocContatiner.CreateDao<IMajorKindDAO, MajorKindDAO>();
+        IMajorKindDAO im = IocCreate.CreateDao<IMajorKindDAO, MajorKindDAO>();
         public int AddMajorKind(MajorKindModel mk)
         {
             return im.AddMajorKind(mk);

@@ -20,5 +20,8 @@ namespace IBLL
 
         List<RoleModel> RolesmanFenYe(int currentPage, int PageSize, out int rows);
 
+        int Adds(int id, int Tid);
+        int dels(int Tid);
+
     }
 }

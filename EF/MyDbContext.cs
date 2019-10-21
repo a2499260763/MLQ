@@ -13,7 +13,7 @@ namespace EF
     {
         public MyDbContext():base("sql")
         {
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyDbContext>());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -52,6 +52,7 @@ namespace EF
 
         public DbSet<Major_change> Major_change { get; set; }
 
-
+        public DbSet<Access> Access { get; set; }
+        public DbSet<Permissions> Permissions { get; set; }
     }
 }

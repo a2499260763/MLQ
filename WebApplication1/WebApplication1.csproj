@@ -713,6 +713,7 @@
     <Content Include="Views\Client\MajorKindIndex.cshtml" />
     <Content Include="Views\Client\MajorKindInsert.cshtml" />
     <Content Include="Views\Client\MajorInsert.cshtml" />
+    <Content Include="Views\Jurisdiction\UpdeteResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

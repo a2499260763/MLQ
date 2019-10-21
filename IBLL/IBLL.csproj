@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccessBLL.cs" />
     <Compile Include="IJlBLL.cs" />
     <Compile Include="ILuYongBLL.cs" />
+    <Compile Include="IMajorBLL.cs" />
     <Compile Include="IMajorChenBLL.cs" />
     <Compile Include="IMajorKindBLL.cs" />
     <Compile Include="IMajorReleaseBLL.cs" />

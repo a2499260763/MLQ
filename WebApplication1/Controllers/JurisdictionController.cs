@@ -16,7 +16,8 @@ namespace WebApplication1.Controllers
 
         IUserBLL isb = IocCreate.CreateBLL<IUserBLL>("UserBLL");
         IRoleBLL iro = IocCreate.CreateBLL<IRoleBLL>("RoleBLL");
-        
+        IAccessBLL acc = IocCreate.CreateBLL<IAccessBLL>("AccessBLL");
+
         // GET: Jurisdiction
         public ActionResult Index()
         {
@@ -90,7 +91,7 @@ namespace WebApplication1.Controllers
 
 
 
-        public ActionResult SelectWheretwo(int id)
+        public ActionResult SelectWheretwo(int id) 
         {
             List<RoleModel> list1 = iro.RoleSelect();
             SelectList s1 = new SelectList(list1, "Role_id", "Role_Name", 1);
@@ -176,13 +177,55 @@ namespace WebApplication1.Controllers
             if (iro.RoleAdd(one) > 0)
             {
                 Response.Write("<script>alert('添加成功')</script>");
-                return RoleAdd();
+                return SelectRole();
             }
             else
             {
                 Response.Write("<script>alert('添加失败')</script>");
                 return View();
             }
+        }
+
+        public ActionResult UpdeteResult(int Role_id)
+        {
+            return View("UpdeteResult", iro.SelectRoleBy(Role_id));
+        }
+
+        public ActionResult Index2Up(RoleModel uu, string[] rightCodes)
+        {
+            List<AccessModel> st = new List<AccessModel>();
+            bool pan = true;
+            iro.dels(uu.Role_id);
+            iro.RoleUpdate(uu);
+            if (rightCodes != null)
+            {
+                foreach (string item in rightCodes)
+                {
+                    AccessModel li = acc.selecttiao(item);
+                    st.Add(li);
+                }
+                foreach (AccessModel it in st)
+                {
+                    if (iro.Adds(it.id, uu.Role_id) > 0)
+                    {
+                        pan = true;
+                    }
+                    else
+                    {
+                        pan = false;
+                        break;
+                    }
+                }
+                if (pan)
+                {
+                    return Content("<script>alert('操作成功');location.href='/JurisdictionController/SelectRole'</script>");
+                }
+                else
+                {
+                    return Content("<script>alert('操作失败');location.href='/JurisdictionController/SelectRole'</script>");
+                }
+            }
+            return Content("<script>location.href='/JurisdictionController/SelectRole'</script>");
         }
 
 

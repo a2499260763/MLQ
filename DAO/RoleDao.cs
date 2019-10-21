@@ -120,5 +120,21 @@ namespace DAO
             }
             return list2; ;
         }
+
+
+        public int Adds(int id, int Tid)
+        {
+            MyDbContext db = CreateContext();
+            int a = db.Database.ExecuteSqlCommand(string.Format(@"Insert into [Permissions](id,JSID) values('{0}','{1}')", id, Tid));
+            db.SaveChanges();
+            return a;
+        }
+        public int dels(int Tid)
+        {
+            MyDbContext db = CreateContext();
+            int a = db.Database.ExecuteSqlCommand(string.Format(@"delete from  [Permissions] where JSID='{0}'", Tid));
+            db.SaveChanges();
+            return a;
+        }
     }
 }

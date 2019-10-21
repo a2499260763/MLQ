@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccessDAO.cs" />
     <Compile Include="IEngageTypeDAO.cs" />
     <Compile Include="IJlDAO.cs" />
     <Compile Include="ILuYongDAO.cs" />
     <Compile Include="IMajorChenDAO.cs" />
+    <Compile Include="IMajorDAO.cs" />
     <Compile Include="IMajorKindDAO.cs" />
     <Compile Include="IMajorReleaseDAO.cs" />
     <Compile Include="IMianShiDAO.cs" />

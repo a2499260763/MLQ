@@ -17,6 +17,16 @@ namespace BLL
     {
         IRoleDAO iub = IocCreate.CreateDao<IRoleDAO, RoleDAO>();
 
+        public int Adds(int id, int Tid)
+        {
+            return Adds(id, Tid);
+        }
+
+        public int dels(int Tid)
+        {
+            return dels(Tid);
+        }
+
         public int RoleAdd(RoleModel sm)
         {
             return iub.RoleAdd(sm);

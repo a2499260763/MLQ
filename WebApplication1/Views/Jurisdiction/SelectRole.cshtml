@@ -69,7 +69,7 @@
 
                 </td>
                 <td class="TD_STYLE2">
-                    <img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" onclick="location.href='right_list_information.html'" />
+                    <img src="../../images/bt_edit.gif" title="编辑" style="cursor:pointer;" v-on:click="up(item.Role_id)" />
                     <img src="../../images/bt_del.gif" title="删除" style="cursor:pointer;"  v-on:click="sc(item.Role_id)"  />
                 </td>
             </tr>
@@ -159,7 +159,12 @@
                             t.JueNum = eval("" + msg + "");
                         }
                     });
-                }
+                },
+                up:function (id) {
+                    if (confirm("确定删除此用户吗？")) {
+                      
+                        location = "../Jurisdiction/Del1/" + id;
+                    }
             },
             created: function () {
                 this.FenYe();
