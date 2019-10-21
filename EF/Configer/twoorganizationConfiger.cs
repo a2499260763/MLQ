@@ -13,11 +13,11 @@ namespace EF.Configer
         {
             this.ToTable(nameof(twoorganization));
             this.HasKey(e => e.twoID);
-            this.Property(e => e.oneCodeName).HasMaxLength(50).IsRequired();
-            this.Property(e => e.twoCode).HasMaxLength(50).IsRequired();
+            //this.Property(e => e.oneCodeName).HasMaxLength(50).IsRequired();
+            //this.Property(e => e.twoCode).HasMaxLength(50).IsRequired();
             this.Property(e => e.twoCodeName).HasMaxLength(50).IsRequired();
-            this.Property(e => e.twoCoderemuneration).HasMaxLength(50).IsRequired();
-            this.Property(e => e.twoCodemarket).HasMaxLength(50).IsRequired();
+            //this.Property(e => e.twoCoderemuneration).HasMaxLength(50).IsRequired();
+            //this.Property(e => e.twoCodemarket).HasMaxLength(50).IsRequired();
             
         }
     }

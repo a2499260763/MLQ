@@ -14,7 +14,7 @@ namespace BLL
 {
     public class MajorKindBLL : IMajorKindBLL
     {
-        IMajorKindDAO im = Ioc.IocCreate.CreateDao<IMajorKindDAO, MajorKindDAO>();
+        IMajorKindDAO im = IocCreate.CreateDao<IMajorKindDAO, MajorKindDAO>();
         public int AddMajorKind(MajorKindModel mk)
         {
             return im.AddMajorKind(mk);

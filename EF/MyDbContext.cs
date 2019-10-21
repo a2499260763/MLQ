@@ -13,7 +13,7 @@ namespace EF
     {
         public MyDbContext():base("sql")
         {
-
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyDbContext>());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,7 +29,6 @@ namespace EF
         public DbSet<PublicChar> PublicChar { get; set; }
 
         public DbSet<Salary> Salary { get; set; }
-        public DbSet<Major> Major { get; set; }
         public DbSet<MajorChen> MajorChen { get; set; }
         public DbSet<MajorKind> MajorKind { get; set; }
         public DbSet<oneorganization> oneorganization { get; set; }
@@ -39,5 +38,22 @@ namespace EF
         public DbSet<MajorWei> MajorWei { get; set; }
         //public DbSet<grant> grant { get; set; }
 
+        public DbSet<MajorRelease> MajorRelease { get; set; }
+
+        public DbSet<MajorZW> Major { get; set; }
+
+        public DbSet<Jl> Jl { get; set; }
+
+        public DbSet<MianShi> MianShi { get; set; }
+
+        public DbSet<LuYong> LuYong { get; set; }
+
+        public DbSet<SalaryBiaoZhun> SalaryBiaoZhun { get; set; }
+        public DbSet<Role> Role { get; set; }
+
+        public DbSet<Major_change> Major_change { get; set; }
+
+        public DbSet<Access> Access { get; set; }
+        public DbSet<Permissions> Permissions { get; set; }
     }
 }

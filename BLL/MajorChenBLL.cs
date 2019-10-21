@@ -14,7 +14,7 @@ namespace BLL
 {
     public class MajorChenBLL : IMajorChenBLL
     {
-        IMajorChenDAO im = Ioc.IocCreate.CreateDao<IMajorChenDAO, MajorChenDAO>();
+        IMajorChenDAO im = IocCreate.CreateDao<IMajorChenDAO, MajorChenDAO>();
 
         public int DeleMajorChen(MajorChenModel Id)
         {

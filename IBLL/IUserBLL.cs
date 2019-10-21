@@ -17,5 +17,7 @@ namespace IBLL
 
         List<UserModel> login(string name, string password);
         List<UserModel> UserFenYe<K>(int currentPage, int PageSize, out int rows);
+
+        List<UserModel> UsersmanFenYe(int currentPage, int PageSize, out int rows);
     }
 }

@@ -13,6 +13,8 @@ namespace DAO
 {
     public class UserDAO : DaoBase<User>, IUserDAO
     {
+
+
         public List<UserModel> login(string name, string password)
         {
             MyDbContext db = CreateContext();
@@ -21,14 +23,17 @@ namespace DAO
                   .Select(e => e)
                   .ToList();
             List<UserModel> list2 = new List<UserModel>();
-            foreach (User item in list)
+            foreach (User p in list)
             {
                 UserModel sm = new UserModel()
                 {
-                    user_id = item.user_id,
-                    user_name = item.user_name,
-                    user_password = item.user_password,
-                    user_true_name = item.user_true_name
+                    user_id = p.user_id,
+                    user_name = p.user_name,
+                    user_password = p.user_password,
+                    user_true_name = p.user_true_name,
+                    Role_id = p.Role_id,
+                    Role_Name = p.Role_Name
+
                 };
                 list2.Add(sm);
             }
@@ -43,41 +48,48 @@ namespace DAO
                   .Select(e => e)
                   .ToList();
             List<UserModel> list2 = new List<UserModel>();
-            foreach (User item in list)
+            foreach (User p in list)
             {
                 UserModel sm = new UserModel()
                 {
-                    user_id= item.user_id,
-                    user_name=item.user_name,
-                    user_password=item.user_password,
-                    user_true_name=item.user_true_name
+                    user_id = p.user_id,
+                    user_name = p.user_name,
+                    user_password = p.user_password,
+                    user_true_name = p.user_true_name,
+                    Role_id = p.Role_id,
+                    Role_Name = p.Role_Name
+
                 };
                 list2.Add(sm);
             }
             return list2; ;
         }
 
-        public int UserAdd(Model.UserModel t)
+        public int UserAdd(Model.UserModel p)
         {
             User st = new User()
             {
-                user_id = t.user_id,
-                user_name = t.user_name,
-                user_password = t.user_password,
-                user_true_name = t.user_true_name
+                user_id = p.user_id,
+                user_name = p.user_name,
+                user_password = p.user_password,
+                user_true_name = p.user_true_name,
+                Role_id = p.Role_id,
+                Role_Name = p.Role_Name
             };
 
             return Add(st);
         }
 
-        public int UserDelete(Model.UserModel t)
+        public int UserDelete(Model.UserModel p)
         {
             User st = new User()
             {
-                user_id = t.user_id,
-                user_name = t.user_name,
-                user_password = t.user_password,
-                user_true_name = t.user_true_name
+                user_id = p.user_id,
+                user_name = p.user_name,
+                user_password = p.user_password,
+                user_true_name = p.user_true_name,
+                Role_id = p.Role_id,
+                Role_Name = p.Role_Name
             };
 
             return Delete(st);
@@ -92,30 +104,65 @@ namespace DAO
         {
             List<User> list = Select();
             List<UserModel> list2 = new List<UserModel>();
-            foreach (User item in list)
+            foreach (User p in list)
             {
                 UserModel sm = new UserModel()
                 {
-                    user_id = item.user_id,
-                    user_name = item.user_name,
-                    user_password = item.user_password,
-                    user_true_name = item.user_true_name
+                    user_id = p.user_id,
+                    user_name = p.user_name,
+                    user_password = p.user_password,
+                    user_true_name = p.user_true_name,
+                    Role_id = p.Role_id,
+                    Role_Name = p.Role_Name
                 };
                 list2.Add(sm);
             }
             return list2; ;
         }
 
-        public int UserUpdate(Model.UserModel sm)
+        public List<UserModel> UsersmanFenYe(int currentPage, int PageSize, out int rows)
+        {
+            var list = CreateContext().User.AsNoTracking().OrderBy(e => e.user_id);
+            rows = list.Count();
+            var data = list
+                 .Skip((currentPage - 1) * PageSize)
+                 .Take(PageSize)
+                 .ToList();
+            List<UserModel> list2 = new List<UserModel>();
+            foreach (var p in data)
+            {
+                UserModel e = new UserModel()
+                {
+                    user_id = p.user_id,
+                    user_name = p.user_name,
+                    user_password = p.user_password,
+                    user_true_name = p.user_true_name,
+                    Role_id = p.Role_id,
+                    Role_Name = p.Role_Name
+                };
+                list2.Add(e);
+            }
+            return list2;
+        }
+
+        public int UserUpdate(Model.UserModel p)
         {
             User st = new User()
             {
-                user_id = sm.user_id,
-                user_name=sm.user_name,
-                user_password=sm.user_password,
-                user_true_name=sm.user_true_name
+                user_id = p.user_id,
+                user_name = p.user_name,
+                user_password = p.user_password,
+                user_true_name = p.user_true_name,
+                Role_id = p.Role_id,
+                Role_Name = p.Role_Name
             };
             return Update(st);
         }
+
+
+
+
+
+
     }
 }

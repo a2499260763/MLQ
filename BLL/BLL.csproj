@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,12 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessBLL.cs" />
+    <Compile Include="JlBLL.cs" />
     <Compile Include="MajorBLL.cs" />
     <Compile Include="MajorChenBLL.cs" />
     <Compile Include="MajorKindBLL.cs" />
     <Compile Include="MajorWeiBLL.cs" />
+    <Compile Include="MajorReleaseBLL.cs" />
+    <Compile Include="MianShiBLL.cs" />
+    <Compile Include="Major_changeBLL.cs" />
     <Compile Include="oneorganizationBLL.cs" />
     <Compile Include="PublicCharBLL.cs" />
+    <Compile Include="SalaryBiaoZhunBLL.cs" />
+    <Compile Include="RoleBLL.cs" />
     <Compile Include="resourceBLL.cs" />
     <Compile Include="SalaryBLL.cs" />
     <Compile Include="StudentBLL.cs" />
@@ -53,6 +61,7 @@
     <Compile Include="threeorganizationBLL.cs" />
     <Compile Include="twoorganizationBLL.cs" />
     <Compile Include="UserBLL.cs" />
+    <Compile Include="YuYongBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
