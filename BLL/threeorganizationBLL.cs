@@ -40,5 +40,10 @@ namespace BLL
         {
             return ithree.threeorganizationUpd(three);
         }
+
+        public List<threeorganizationModel> threeorganizationWhere(string id)
+        {
+            return ithree.threeorganizationWhere(id);
+        }
     }
 }

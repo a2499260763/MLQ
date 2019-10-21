@@ -50,8 +50,10 @@
     <Compile Include="IMajorReleaseDAO.cs" />
     <Compile Include="IMianShiDAO.cs" />
     <Compile Include="IMajor_changeDAO.cs" />
+    <Compile Include="IMajorWeiDAO.cs" />
     <Compile Include="IoneorganizationDAO.cs" />
     <Compile Include="IPublicCharDAO.cs" />
+    <Compile Include="IresourceDAO.cs" />
     <Compile Include="ISalaryBiaoZhunDAO.cs" />
     <Compile Include="IRoleDAO.cs" />
     <Compile Include="ISalaryDAO.cs" />

@@ -59,12 +59,14 @@
     <Compile Include="Configer\MajorReleaseConfiger.cs" />
     <Compile Include="Configer\MianShiConfiger.cs" />
     <Compile Include="Configer\Major_changeConfig.cs" />
+    <Compile Include="Configer\MajorweiConfig.cs" />
     <Compile Include="Configer\oneorganizationConfiger.cs" />
     <Compile Include="Configer\PermissionsConfig.cs" />
     <Compile Include="Configer\PopedomsConfiger.cs" />
     <Compile Include="Configer\PublicCharConfiger.cs" />
     <Compile Include="Configer\SalaryBiaoZhunConfiger.cs" />
     <Compile Include="Configer\RoleConfiger.cs" />
+    <Compile Include="Configer\resourceConfig.cs" />
     <Compile Include="Configer\SalaryConfiger.cs" />
     <Compile Include="Configer\threeorganizationConfiger.cs" />
     <Compile Include="Configer\twoorganizationConfiger.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Entity\MajorZW.cs" />
     <Compile Include="Entity\MajorChen.cs" />
     <Compile Include="Entity\MajorKind.cs" />
+    <Compile Include="Entity\MajorWei.cs" />
     <Compile Include="Entity\Major_change.cs" />
     <Compile Include="Entity\MajorRelease.cs" />
     <Compile Include="Entity\MianShi.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="Entity\Popedoms.cs" />
     <Compile Include="Entity\PublicChar.cs" />
     <Compile Include="Entity\Role.cs" />
+    <Compile Include="Entity\resource.cs" />
     <Compile Include="Entity\Salary.cs" />
     <Compile Include="Entity\SalaryBiaoZhun.cs" />
     <Compile Include="Entity\threeorganization.cs" />

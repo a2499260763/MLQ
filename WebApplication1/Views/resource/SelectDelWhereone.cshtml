@@ -1,0 +1,227 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SelectDelWhereone</title>
+    <link rel="stylesheet" href="../../css/table.css" type="text/css">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../javascript/calendar/calendar-win2k-cold-1.css">
+    <script type="text/javascript" src="../../javascript/calendar/cal.js"></script>
+    <script type="text/javascript" src="../../javascript/comm/comm.js"></script>
+    <script type="text/javascript" src="../../javascript/comm/list.js"></script>
+    <script type="text/javascript" src="../../javascript/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../javascript/calendar-ch.js"></script>
+    <script type="text/javascript" src="../../javascript/comm/time.js"></script>
+    <link rel="stylesheet" href="../../css/cwcalendar.css" type="text/css">
+    <script src="~/javascript/vue-2.4.0.js"></script>
+</head>
+<body>
+    
+        <div id="div123">
+            @using (Html.BeginForm("SelectDelWhereOnes", "resource", FormMethod.Post))
+            {
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <font color="black">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案变更 </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <input type="submit" value="查询" class="BUTTON_STYLE1" />
+                            @*<input type="button" value="搜索" class="BUTTON_STYLE1"
+                            onclick="location.href='query_keywords.html'">*@
+                            <input type="hidden" name="result" value="toQueryList" />
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" border="1" cellpadding=0 cellspacing=1
+                       bordercolorlight=#848284 bordercolordark=#eeeeee
+                       class="TABLE_STYLE1">
+                    <tr class="TR_STYLE1">
+                        <td width="16%" class="TD_STYLE1">
+                            请选择员工所在I级机构
+                        </td>
+                        <td width="84%" class="TD_STYLE2">
+                            <select name="oneCodeName" size="5" id="oneCodeName" v-on:change="oneCode"
+                                    class="SELECT_STYLE2">
+                                <option value="0" selected="selected">全部</option>
+
+                                <option v-for="(item,index) in one" v-bind:value="item.oneCodeName">{{item.oneCodeName}}</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="TD_STYLE1">
+                            请选择员工所在II级机构
+                        </td>
+                        <td width="84%" class="TD_STYLE2">
+                            <select name="twoCodeName" size="5" id="twoCodeName" v-on:change="twoCode"
+                                    class="SELECT_STYLE2">
+                                <option value="0" selected="selected">
+                                    全部
+                                </option>
+
+                                <option value="" v-for="(item,index) in two" v-bind:value="item.twoCodeName">{{item.twoCodeName}}</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="TR_STYLE1">
+                        <td width="16%" class="TD_STYLE1">
+                            请选择员工所在III级机构
+                        </td>
+                        <td width="84%" class="TD_STYLE2">
+                            <select name="threeCodeName" class="SELECT_STYLE2" size="5" id="threeCodeName">
+                                <option value="0" selected="selected">
+                                    全部
+                                </option>
+
+                                <option value="" v-for="(item,index) in three" v-bind:value="item.threeCodeName">{{item.threeCodeName}}</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="TD_STYLE1">
+                            请选择职位分类
+                        </td>
+                        <td width="84%" class="TD_STYLE2">
+                            <select name="MKName" size="5" id="MKName" v-on:change="weinameCode"
+                                    class="SELECT_STYLE2">
+                                <option value="0" selected="selected">
+                                    全部
+                                </option>
+
+                                <option v-for="(item,index) in weifen" v-bind:value="item.MKName">{{item.MKName}}</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="TR_STYLE1">
+                        <td width="16%" class="TD_STYLE1">
+                            请选择职位名称
+                        </td>
+                        <td width="84%" class="TD_STYLE2">
+                            <select name="CName" size="5" class="SELECT_STYLE2" id="CName">
+                                <option value="0" selected="selected">
+                                    全部
+                                </option>
+
+                                <option v-for="(item,index) in weiname" v-bind:value="item.CName">{{item.CName}}</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="TD_STYLE1">
+                            请输入建档时间
+                        </td>
+                        <td width="84%" class="TD_STYLE2">
+                            <input type="text" name="RInputting" onclick="aa('RInputting')" value="" style="width:24% " class="INPUT_STYLE2" id="date_start">
+                            至
+                            <input type="text" name="RChangeDate" onclick="aa('RChangeDate')" value="" style="width:24% " class="INPUT_STYLE2" id="date_end">
+                            <input type="hidden" name="utilBean.datePropertyName" value="registTime" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+        <script type="text/javascript">
+        var vue = new Vue({
+            el: "#div123",
+            data: {
+                one: "",
+                two: "",
+                three: "",
+                weifen: "",
+                weiname: "",
+            },
+            methods: {
+                oneSelect: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/SelectWhereONE",
+                        type: "post",
+                        success: function (msg) {
+
+                            var o = eval("(" + msg + ")");
+                            t.one = o;
+
+                        }
+                    })
+                },
+                oneCode: function () {
+                    var t = this;
+                    var oneCodeName = $("#oneCodeName").val();
+                    $.ajax({
+                        url: "/resource/SelectWhereTWO",
+                        type: "post",
+                        data: "oneCodeName=" + oneCodeName,
+                        success: function (msg) {
+                            var to = eval("(" + msg + ")");
+                            t.two = to;
+                        }
+                    })
+                },
+                twoCode: function () {
+                    var t = this;
+                    var twoCodeName = $("#twoCodeName").val();
+                    $.ajax({
+                        url: "/resource/SelectWhereTHREE",
+                        type: "post",
+                        data: "twoCodeName=" + twoCodeName,
+                        success: function (msg) {
+                            var th = eval("(" + msg + ")");
+                            t.three = th;
+                        }
+                    })
+                },
+                weifenCode: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/SelectWhereWEIFEN",
+                        type: "post",
+                        success: function (msg) {
+                            var wf = eval("(" + msg + ")");
+                            t.weifen = wf;
+                        }
+                    })
+                },
+                weinameCode: function () {
+                    var t = this;
+                    var MKName = $("#MKName").val();
+                    $.ajax({
+                        url: "/resource/SelectWhereWEINAME",
+                        type: "post",
+                        data: "MKName=" + MKName,
+                        success: function (msg) {
+                            var wn = eval("(" + msg + ")");
+                            t.weiname = wn;
+                        }
+                    })
+                },
+
+
+            },
+
+            created: function () {
+                this.oneSelect();
+                this.oneCode();
+                this.twoCode();
+                this.weifenCode();
+                this.weinameCode();
+            }
+
+        })
+        </script>
+    
+</body>
+</html>

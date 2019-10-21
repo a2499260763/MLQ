@@ -9,6 +9,7 @@ namespace Model
    public class MajorChenModel
     {
         public int Id { get; set; }
+        public string CID { get; set; }
 
         public string CName { get; set; }
     }

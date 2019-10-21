@@ -53,10 +53,12 @@
     <Compile Include="MajorZWModel.cs" />
     <Compile Include="MajorReleaseModel.cs" />
     <Compile Include="MianShiModel.cs" />
+    <Compile Include="MajorWeiModel.cs" />
     <Compile Include="oneorganizationModel.cs" />
     <Compile Include="PermissionsModel.cs" />
     <Compile Include="PopedomsModel.cs" />
     <Compile Include="PublicCharModel.cs" />
+    <Compile Include="resourceModel.cs" />
     <Compile Include="RoleModel.cs" />
     <Compile Include="SalaryBiaoZhunModel.cs" />
     <Compile Include="SalaryModel.cs" />

@@ -51,11 +51,13 @@
     <Compile Include="MajorChenDAO.cs" />
     <Compile Include="MajorDAO.cs" />
     <Compile Include="MajorKindDAO.cs" />
+    <Compile Include="MajorWeiDAO.cs" />
     <Compile Include="Major_changeDAO.cs" />
     <Compile Include="MajorReleaseDAO.cs" />
     <Compile Include="MianShiDAO.cs" />
     <Compile Include="oneorganizationDAO.cs" />
     <Compile Include="PublicCharDAO.cs" />
+    <Compile Include="resourceDAO.cs" />
     <Compile Include="RoleDAO.cs" />
     <Compile Include="SalaryBiaoZhunDAO.cs" />
     <Compile Include="SalaryDAO.cs" />

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\oneorganizationController.cs" />
+    <Compile Include="Controllers\resourceController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\threeorganizationController.cs" />
     <Compile Include="Controllers\TransferController.cs" />
@@ -319,6 +320,10 @@
     <Content Include="images\tuopu_32.gif" />
     <Content Include="images\tuopu_33.gif" />
     <Content Include="images\tuopu_34.gif" />
+    <Content Include="Image\2019\10\12\2182F1091ED0C01C52B47438BF868F55.jpg" />
+    <Content Include="Image\2019\10\12\797519E702419AFBB4D2B6235287F358.jpg" />
+    <Content Include="Image\2019\10\12\E42A3BA7D92B50844B9A38E9A4E21BF9.jpg" />
+    <Content Include="Image\2019\10\14\61299BF9DD8B48A54A41072CABB31CDB.jpg" />
     <Content Include="javascript\calendar-ch.js" />
     <Content Include="javascript\calendar\cal.js" />
     <Content Include="javascript\calendar\calendar-win2k-cold-1.css" />
@@ -535,6 +540,7 @@
     <Content Include="javascript\tree\event.js" />
     <Content Include="javascript\tree\tree.css" />
     <Content Include="javascript\user_add.js" />
+    <Content Include="javascript\vue-2.4.0.js" />
     <Content Include="javascript\winopen\winopen.js" />
     <Content Include="javascript\winopen\winopenm.js" />
     <Content Include="javascript\winopen\winopenn.js" />
@@ -628,6 +634,12 @@
     <Content Include="imagess\Thumbs.db" />
     <Content Include="mod_image\Thumbs.db" />
     <Content Include="javascript\input_control\validation-config.dtd" />
+    <Content Include="Wp\jquery.js" />
+    <Content Include="Wp\style.css" />
+    <Content Include="Wp\upload.js" />
+    <Content Include="Wp\Uploader.swf" />
+    <Content Include="Wp\webuploader.css" />
+    <Content Include="Wp\webuploader.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -714,6 +726,25 @@
     <Content Include="Views\Client\MajorKindInsert.cshtml" />
     <Content Include="Views\Client\MajorInsert.cshtml" />
     <Content Include="Views\Jurisdiction\UpdeteResult.cshtml" />
+    <Content Include="Views\resource\Insertresource.cshtml" />
+    <Content Include="Views\resource\Selectresource.cshtml" />
+    <Content Include="Views\resource\Updateesource.cshtml" />
+    <Content Include="Views\resource\UpdateresourceState.cshtml" />
+    <Content Include="Views\resource\UpdatePhoto.cshtml" />
+    <Content Include="Views\resource\SelectWhereresource.cshtml" />
+    <Content Include="Views\resource\SelectWhereDate.cshtml" />
+    <Content Include="Views\resource\Selectres.cshtml" />
+    <Content Include="Views\resource\SelectWhereBianGen.cshtml" />
+    <Content Include="Views\resource\SelectWhereBianGenFenYe.cshtml" />
+    <Content Include="Views\resource\Selectresour.cshtml" />
+    <Content Include="Views\resource\UpdateSelectPhoto.cshtml" />
+    <Content Include="Views\resource\SelectresDel.cshtml" />
+    <Content Include="Views\resource\SelectDelFen.cshtml" />
+    <Content Include="Views\resource\SelectDeltwo.cshtml" />
+    <Content Include="Views\resource\SelectDelWhereone.cshtml" />
+    <Content Include="Views\resource\SelectDelWhereOnes.cshtml" />
+    <Content Include="Views\resource\SelectDelWhereOnesRes.cshtml" />
+    <Content Include="Views\resource\SelectDelWhereTwos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

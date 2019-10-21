@@ -25,7 +25,7 @@ namespace Ioc
         {
             UnityContainer ioc = new UnityContainer();
             ExeConfigurationFileMap ef = new ExeConfigurationFileMap();
-            ef.ExeConfigFilename = @"C:\Users\MZF\Source\Repos\MLQ\WebApplication1\Unity.config";
+            ef.ExeConfigFilename = @"E:\Y2作业\c#\Y2作业\Y31\kelonger\WebApplication1\Unity.config";
             Configuration cf = ConfigurationManager.OpenMappedExeConfiguration(ef, ConfigurationUserLevel.None);
             UnityConfigurationSection cs = cf.GetSection("unity") as UnityConfigurationSection;
             ioc.LoadConfiguration(cs, "containerTwo");

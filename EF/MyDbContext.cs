@@ -29,9 +29,14 @@ namespace EF
         public DbSet<PublicChar> PublicChar { get; set; }
 
         public DbSet<Salary> Salary { get; set; }
+        public DbSet<Major> Major { get; set; }
+        public DbSet<MajorChen> MajorChen { get; set; }
+        public DbSet<MajorKind> MajorKind { get; set; }
         public DbSet<oneorganization> oneorganization { get; set; }
         public DbSet<twoorganization> twoorganization { get; set; }
         public DbSet<threeorganization> threeorganization { get; set; }
+        public DbSet<resource> resource { get; set; }
+        public DbSet<MajorWei> MajorWei { get; set; }
 
         public DbSet<Entity.MajorKind> MajorKind { get; set; }
 

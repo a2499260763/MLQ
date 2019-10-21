@@ -49,8 +49,10 @@
     <Compile Include="IMajorReleaseBLL.cs" />
     <Compile Include="IMianShiBLL.cs" />
     <Compile Include="IMajor_changeBLL.cs" />
+    <Compile Include="IMajorWeiBLL.cs" />
     <Compile Include="IoneorganizationBLL.cs" />
     <Compile Include="IPublicCharBLL.cs" />
+    <Compile Include="IresourceBLL.cs" />
     <Compile Include="ISalaryBiaoZhunBLL.cs" />
     <Compile Include="IRoleBLL.cs" />
     <Compile Include="ISalaryBLL.cs" />

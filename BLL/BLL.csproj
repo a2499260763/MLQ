@@ -46,6 +46,7 @@
     <Compile Include="MajorBLL.cs" />
     <Compile Include="MajorChenBLL.cs" />
     <Compile Include="MajorKindBLL.cs" />
+    <Compile Include="MajorWeiBLL.cs" />
     <Compile Include="MajorReleaseBLL.cs" />
     <Compile Include="MianShiBLL.cs" />
     <Compile Include="Major_changeBLL.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="PublicCharBLL.cs" />
     <Compile Include="SalaryBiaoZhunBLL.cs" />
     <Compile Include="RoleBLL.cs" />
+    <Compile Include="resourceBLL.cs" />
     <Compile Include="SalaryBLL.cs" />
     <Compile Include="StudentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

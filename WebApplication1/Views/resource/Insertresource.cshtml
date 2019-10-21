@@ -1,0 +1,515 @@
+﻿@model resourceModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Insertresource</title>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <link href="~/css/cwcalendar.css" rel="stylesheet" />
+    <script src="~/javascript/comm/comm.js"></script>
+    <script src="~/javascript/comm/list.js"></script>
+    <script src="~/javascript/calendar-ch.js"></script>
+    <script src="~/javascript/jquery-1.7.2.js"></script>
+    <script src="~/javascript/locate.js"></script>
+    <script src="~/javascript/select.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+    <script type="text/javascript">
+ 			window.onload=check;
+		function tick() {
+			var now = new Date();
+			var hours, minutes, seconds, noon;
+			var intHours, intMinutes, intSeconds;
+			intHours = now.getHours();
+			intMinutes = now.getMinutes();
+			intSeconds = now.getSeconds();
+			if (intHours < 24) {
+				hours = intHours+":";
+				noon = "A.M.";
+			} else {
+				intHours = intHours - 24;
+				hours = intHours + ":";
+				noon = "P.M.";
+			}
+			if (intMinutes < 10) {
+				minutes = "0"+intMinutes+":";
+			} else {
+				minutes = intMinutes+":";
+			}
+			if (intSeconds < 10) {
+				seconds = "0"+intSeconds+" ";
+			} else {
+				seconds = intSeconds+" ";
+			}
+			timeString = hours+minutes+seconds;
+			var now = new Date();
+		  	document.getElementById("nowTime").value=now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+timeString;
+			window.setTimeout("tick();", 1000);
+		}
+
+		//load事件
+		function check(){
+			//获得系统当前时间的方法
+		  	tick();
+		}
+    </script>
+</head>
+<body>
+    <div id="div123"> 
+        @using (Html.BeginForm("InsertWhereresource", "resource", FormMethod.Post))
+        {
+
+            <input id="Text1" type="text" name="RCode" value="@ViewData["s"]" hidden="hidden" />
+            <table width="100%">
+                <tr>
+                    <td>
+                        <font color="black">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案登记 </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <input type="submit" value="提交" class="BUTTON_STYLE1" />
+                        <input type="reset" value="清除" class="BUTTON_STYLE1" />
+                    </td>
+                </tr>
+                
+            </table>
+            <table width="100%" border="1" cellpadding=3 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                
+                <tr>
+                    <td class="TD_STYLE1" width="11%">
+                        I级机构
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        <select name="oneCodeName" class="SELECT_STYLE1" id="firstKind" v-on:change="bian">
+                            <option value="0">请选择</option>
+                            <option v-for="(item,index) in nums" v-bind:value="item.oneCodeName">{{item.oneCodeName}}</option>
+                        </select>
+                        <input type="hidden" name="humanFile.firstKindName" />
+                    </td>
+                    <td width="11%" class="TD_STYLE1">
+                        II级机构
+                    </td>
+                    <td width="14%" class="TD_STYLE2">
+                        <select name="twoCodeName" class="SELECT_STYLE1" id="secondKind" v-on:change="gai">
+                            <option value="0">请选择</option>
+                            <option v-for="(item,index) in ead" v-bind:value="item.twoCodeName">{{item.twoCodeName}}</option>
+                        </select>
+                        <input type="hidden" name="humanFile.secondKindName" />
+                    </td>
+                    <td width="11%" class="TD_STYLE1">
+                        III级机构
+                    </td>
+                    <td class="TD_STYLE2" colspan="2">
+                        <select name="threeCodeName" class="SELECT_STYLE1" id="thirdKind">
+                            <option value="0">请选择</option>
+                            <option v-for="(item,index) in three" v-bind:value="item.threeCodeName">{{item.threeCodeName}}</option>
+                        </select>
+                        <input type="hidden" name="humanFile.thirdKindName" />
+                    </td>
+                    <td rowspan="5" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        职位分类
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="MKName" class="SELECT_STYLE1" id="majorKind" v-on:change="kk">
+                            <option>请选择</option>
+                            <option v-for="(item,index) in k" v-bind:value="item.MKName" >{{item.MKName}}</option>
+                        </select>
+                        <input type="hidden" name="humanFile.humanMajorKindName" />
+                    </td>
+                    <td class="TD_STYLE1">
+                        职位名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="CName" class="SELECT_STYLE1" id="majorName">
+                            <option>请选择</option>
+                            <option v-for="(item,index) in shitu" v-bind:value="item.CName">{{item.CName}}</option>
+                        </select>
+                        <input type="hidden" name="humanFile.hunmaMajorName" />
+                    </td>
+                    <td class="TD_STYLE1">
+                        职称
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <select name="MWei" class="SELECT_STYLE1">
+                            <option>请选择</option>
+                            <option v-for="(item,index) in whei"  v-bind:value="item.MWei">{{item.MWei}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        姓名
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" id="humanName" name="RName"
+                               class="INPUT_STYLE2" />
+                    </td>
+                    <td class="TD_STYLE1">
+                        性别
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RSex" class="SELECT_STYLE1">
+                            <option value="男" selected="selected">
+                                男
+                            </option>
+                            <option value="女">
+                                女
+                            </option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        EMAIL
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <input type="text" name="REmail" id="humanEmail"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        电话
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RPhone" id="humanTelephone"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        QQ
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RQQ" id="humanQq"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        手机
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <input type="text" name="RCellphone" id="humanMobilephone"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        住址
+                    </td>
+                    <td colspan="3" class="TD_STYLE2">
+                        <input type="text" name="RAddress"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        邮编
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <input type="text" name="RPostcode"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        国籍
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RNationality" class="SELECT_STYLE1">
+                            <option value="中国">中国</option>
+                            <option value="美国">美国</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        出生地
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RBirthplace"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        生日
+                    </td>
+                    <td width="13%" class="TD_STYLE2">
+                        <input type="text" name="RBirthday" 
+                               class="INPUT_STYLE2" id="birthday">
+                    </td>
+                    <td width="11%" class="TD_STYLE1">
+                        民族
+                    </td>
+                    <td class="TD_STYLE2" width="14%">
+                        <select name="RNation" class="SELECT_STYLE1">
+                            <option value="汉族">汉族</option>
+                            <option value="回族">回族</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        宗教信仰
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RFaith" class="SELECT_STYLE1">
+                            <option value="无">无</option>
+                            <option value="佛教">佛教</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        政治面貌
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RPolitics" class="SELECT_STYLE1">
+                            <option value="群众">群众</option>
+                            <option value="党员">党员</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        身份证号码
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RIDKA" id="humanIdCard"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        社会保障号码
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RSecurity"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        年龄
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RAge" id="humanAge"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        学历
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RBackground" class="SELECT_STYLE1">
+                            <option value="高中">高中</option>
+                            <option value="本科">本科</option>
+                            <option value="大专">大专</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        教育年限
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RYears" class="SELECT_STYLE1">
+                            <option value="12">12</option>
+                            <option value="16">16</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        学历专业
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="REducation" class="SELECT_STYLE1">
+                            <option value="生物工程">生物工程</option>
+                            <option value="计算机">计算机</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        薪酬标准
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RSalary" class="SELECT_STYLE1">
+                            <option value="薪酬标准1">薪酬标准1</option>
+                            <option value="薪酬标准2">薪酬标准2</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        开户行
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RBank"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        帐号
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RAccounts"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        登记人
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RRegistrant" value="谢鹏"
+                               readonly="readonly" class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        建档时间
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RInputting"
+                               id="nowTime" readonly="readonly"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        特长
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="Rstrong" class="SELECT_STYLE1">
+                            <option value="java">java</option>
+                            <option value="数据库">数据库</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        爱好
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select name="RHobby" class="SELECT_STYLE1">
+                            <option value="篮球">篮球</option>
+                            <option value="跳舞">跳舞</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        &nbsp;
+                    </td>
+                    <td class="TD_STYLE2">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        个人履历
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea name="Rcurriculum" rows="4"
+                                  class="TEXTAREA_STYLE1"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        家庭关系信息
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea name="RFamily" rows="4"
+                                  class="TEXTAREA_STYLE1"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        备注
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea name="RRemark" rows="4" class="TEXTAREA_STYLE1"></textarea>
+                    </td>
+                </tr>
+
+            </table>
+            <input id="Text1" type="text" name="RState" value="未复核" hidden="hidden"/>
+            <input id="Text2" type="text" name="RRState" value="0" hidden="hidden"/>
+            <input id="Text3" type="text" name="RRBasicCount" value="0" hidden="hidden" />
+            <input id="Text4" type="text" name="RRShouldCount" value="0" hidden="hidden" />
+            <input id="Text5" type="text" name="RRActualCount" value="0" hidden="hidden" />
+            <input id="Text6" type="date" name="RChangeDate" value="2019-08-25" hidden="hidden" />
+        }
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#div123",
+            data: {
+                nums: "",
+                ead: "",
+                three: "",
+                k: "",
+                shitu: "",
+                whei:"",
+            },
+            methods: {
+                load: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/Selectone",
+                        type:"post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.nums = dt;
+                        }
+                    })
+                },
+                bian: function () {
+                    var t = this;
+                    var id = $("#firstKind").val();
+                    $.ajax({
+                        url: "/resource/Selecttwo/" + id,
+                        type: "post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.ead = dt;
+                        }
+                    })
+                },
+                gai: function () {
+                    var t = this;
+                    var id = $("#secondKind").val();
+                    $.ajax({
+                        url: "/resource/Selectthree/" + id,
+                        type: "post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.three = dt;
+                        }
+                    })
+                },
+                kind: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/SelectMajorKind",
+                        type: "post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.k = dt;
+                        }
+                    })
+                },
+                kk: function () {
+                    var t = this;
+                    var id = $("#majorKind").val();
+                    $.ajax({
+                        url: "/resource/SelectWhereMajor/" + id,
+                        type: "post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.shitu = dt;
+                        }
+                    })
+                },
+                wei: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/SelectMajorwei",
+                        type: "post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.whei = dt;
+                        }
+                    })
+                },
+            },
+            created: function () {
+                this.load();
+                this.kind();
+                this.wei();
+            }
+        })
+    </script>
+</body>
+</html>
