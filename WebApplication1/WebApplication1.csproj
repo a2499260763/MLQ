@@ -172,12 +172,17 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JlController.cs" />
     <Compile Include="Controllers\JurisdictionController.cs" />
     <Compile Include="Controllers\LiangController.cs" />
+    <Compile Include="Controllers\LuYongController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\MajorReleaseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MianShiController.cs" />
     <Compile Include="Controllers\oneorganizationController.cs" />
     <Compile Include="Controllers\resourceController.cs" />
+    <Compile Include="Controllers\SalaryBiaoZhunController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\threeorganizationController.cs" />
     <Compile Include="Controllers\TransferController.cs" />
@@ -188,10 +193,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\WebApplication1.dll" />
+    <Content Include="bin\WebApplication1.pdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\cwcalendar.css" />
@@ -745,6 +755,35 @@
     <Content Include="Views\resource\SelectDelWhereOnes.cshtml" />
     <Content Include="Views\resource\SelectDelWhereOnesRes.cshtml" />
     <Content Include="Views\resource\SelectDelWhereTwos.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\InsertSalaryBiaoZhunFuHe.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\InsertSalaryBiaoZhunFuHeShow.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\SalaryBiaoZhunCx.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\SalaryBiaoZhunCxSBZBianHao.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\SalaryBiaoZhunCxShow.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\SalaryBiaoZhunCxUpdate.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\SalaryBiaoZhunCxUpdateShow.cshtml" />
+    <Content Include="Views\SalaryBiaoZhun\UpdateSalaryBiaoZhun.cshtml" />
+    <Content Include="Views\MianShi\MianShiRegister.cshtml" />
+    <Content Include="Views\MianShi\MianShiRegisterIndex.cshtml" />
+    <Content Include="Views\MianShi\MianShiShaiXue.cshtml" />
+    <Content Include="Views\MianShi\MianShiShaiXueIndex.cshtml" />
+    <Content Include="Views\MajorRelease\MajorReleaseAddIndex.cshtml" />
+    <Content Include="Views\MajorRelease\MajorReleaseFbIndex.cshtml" />
+    <Content Include="Views\MajorRelease\MajorReleaseUpdateIndex.cshtml" />
+    <Content Include="Views\MajorRelease\MajorRelesaseUpdate.cshtml" />
+    <Content Include="Views\LuYong\LuYongChaXun.cshtml" />
+    <Content Include="Views\LuYong\LuYongChaXunIndex.cshtml" />
+    <Content Include="Views\LuYong\LuYongShengPiIndex.cshtml" />
+    <Content Include="Views\LuYong\LuYongShengQing.cshtml" />
+    <Content Include="Views\LuYong\LuYongShengQingIndex.cshtml" />
+    <Content Include="Views\LuYong\LuYongShenPi.cshtml" />
+    <Content Include="Views\Jl\JlRegisterIndex.cshtml" />
+    <Content Include="Views\Jl\JlRegisterIndex1.cshtml" />
+    <Content Include="Views\Jl\JlShaiXueIndex.cshtml" />
+    <Content Include="Views\Jl\JlShaiXueIndexShow.cshtml" />
+    <Content Include="Views\Jl\JlShaiXueIndexUpdate.cshtml" />
+    <Content Include="Views\Jl\JlYouXiuIndex.cshtml" />
+    <Content Include="Views\Jl\JlYouXiuIndexShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -774,6 +813,10 @@
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{f7f5f56e-774f-4ad4-9cd0-4021187c2d7f}</Project>
       <Name>IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAO\IDAO.csproj">
+      <Project>{5dd45a92-f2fc-408b-a9f1-0c3db398d9e5}</Project>
+      <Name>IDAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ioc\Ioc.csproj">
       <Project>{fd4737a8-123c-471c-966e-6c96320901aa}</Project>
