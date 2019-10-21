@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Entity
 {
-    public class threeorganization
+    public class threeorganization//III级机构
     {
         public int threeID { get; set; }//III级机构标识列
         public string oneName { get; set; }//I级机构名称

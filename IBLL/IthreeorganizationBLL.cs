@@ -14,5 +14,7 @@ namespace IBLL
         int threeorganizationDel(threeorganizationModel three);
         List<threeorganizationModel> threeorganizationSelect();
         List<threeorganizationModel> threeorganizationSelectWhere(int id);
+        List<threeorganizationModel> threeorganizationWhere(string id);
+
     }
 }

@@ -1,0 +1,494 @@
+﻿@model resourceModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Selectresour</title>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <link href="~/css/cwcalendar.css" rel="stylesheet" />
+    <script src="~/javascript/comm/comm.js"></script>
+    <script src="~/javascript/comm/list.js"></script>
+    <script src="~/javascript/calendar-ch.js"></script>
+    <script src="~/javascript/jquery-1.7.2.js"></script>
+    <script src="~/javascript/locate.js"></script>
+    <script src="~/javascript/select.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+    <script type="text/javascript">
+        window.onload = check;
+
+        function tick() {
+
+            var now = new Date();
+            var hours, minutes, seconds, noon;
+            var intHours, intMinutes, intSeconds;
+            intHours = now.getHours();
+            intMinutes = now.getMinutes();
+            intSeconds = now.getSeconds();
+            if (intHours < 24) {
+                hours = intHours + ":";
+                noon = "A.M.";
+            } else {
+                intHours = intHours - 24;
+                hours = intHours + ":";
+                noon = "P.M.";
+            }
+            if (intMinutes < 10) {
+                minutes = "0" + intMinutes + ":";
+            } else {
+                minutes = intMinutes + ":";
+            }
+            if (intSeconds < 10) {
+                seconds = "0" + intSeconds + " ";
+            } else {
+                seconds = intSeconds + " ";
+            }
+            timeString = hours + minutes + seconds;
+            var now = new Date();
+            document.getElementById("nowTime").value = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + timeString;
+            window.setTimeout("tick();", 1000);
+        }
+
+        //load事件
+        function check() {
+            //获得系统当前时间的方法
+            tick();
+        }
+        $(function () {
+
+
+            if ("@Model.RSex" == "男") {
+                $("#RSex").val("男");
+            } else {
+                $("#RSex").val("女");
+            }
+
+            if ("@Model.RNationality" == "中国") {
+                $("#RNationality").val("中国");
+            } else {
+                $("#RNationality").val("美国");
+            }
+
+            if ("@Model.RNation" == "汉族") {
+                $("#RNation").val("汉族");
+            } else {
+                $("#RNation").val("回族");
+            }
+            if ("@Model.RFaith" == "无") {
+                $("#RFaith").val("无");
+            } else {
+                $("#RFaith").val("佛教");
+            }
+            if ("@Model.RPolitics" == "群众") {
+                $("#RPolitics").val("群众");
+            } else {
+                $("#RPolitics").val("党员");
+            }
+            if ("@Model.RBackground" == "高中") {
+                $("#RBackground").val("高中");
+            } else if ("@Model.RBackground" == "本科") {
+                $("#RBackground").val("本科");
+            } else {
+                $("#RBackground").val("大专");
+            }
+
+            if ("@Model.RYears" == "12") {
+                $("#RYears").val("12");
+            } else {
+                $("#RYears").val("16");
+            }
+            if ("@Model.REducation" == "生物工程") {
+                $("#REducation").val("生物工程");
+            } else {
+                $("#REducation").val("计算机");
+            }
+            if ("@Model.RSalary" == "薪酬标准1") {
+                $("#RSalary").val("薪酬标准1");
+            } else {
+                $("#RSalary").val("薪酬标准2");
+            }
+            if ("@Model.Rstrong" == "java") {
+                $("#Rstrong").val("java");
+            } else {
+                $("#Rstrong").val("数据库2");
+            }
+            if ("@Model.RHobby" == "篮球") {
+                $("#RHobby").val("篮球");
+            } else {
+                $("#RHobby").val("跳舞");
+            }
+        })
+
+    </script>
+</head>
+<body>
+    <div id="div123">
+        @using (Html.BeginForm("Updateresourse", "resource", FormMethod.Post))
+        {
+            <input type="text" name="RState" value="已复核" hidden="hidden" />
+            <input type="text" name="RRState" value="0" hidden="hidden" />
+            <input type="text" name="RInputting" value="@Model.RInputting" hidden="hidden" />
+            <input type="text" name="RRegistrant" value="@Model.RRegistrant" hidden="hidden" />
+            <input id="Text6" type="text" name="RChangeDate" value="@Model.RChangeDate" hidden="hidden" />
+            <input id="Text7" type="text" name="RAlterationDate" value="" hidden="hidden" />
+
+            <table width="100%">
+                <tr>
+                    <td>
+                        <font color="black">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案复核 </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <input type="submit" value="确认变更" class="BUTTON_STYLE1" />
+                        <input type="reset" value="清除" class="BUTTON_STYLE1">
+                        <input type="button" value="返回" class="BUTTON_STYLE1"
+                               onclick="history.back()">
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="1" cellpadding=3 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                <tr>
+                    <td class="TD_STYLE1" width="10%">
+                        档案编号
+                    </td>
+                    <td colspan="6" class="TD_STYLE2">
+                        <input type="text" name="RCode" value="@Model.RCode" readonly="readonly" class="INPUT_STYLE2" />
+                    </td>
+                    <td rowspan="6" width="13%" style="text-align: center;">
+                        <img src="@(Model.RPhoto.Substring(Model.RPhoto.IndexOf(@"\Image")))" style="width:120px;height:150px;" />
+                        <input type="text" name="RPhoto" value="@Model.RPhoto" readonly="readonly" class="INPUT_STYLE2" hidden="hidden" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1" width="10%">
+                        I级机构
+                    </td>
+                    <td width="13%" class="TD_STYLE2">
+                        <input type="text" name="oneCodeName" value="@Model.oneCodeName" readonly="readonly" class="INPUT_STYLE2" />
+                    </td>
+                    <td width="10%" class="TD_STYLE1">
+                        II级机构
+                    </td>
+                    <td width="13%" class="TD_STYLE2">
+                        <input type="text" name="twoCodeName" value="@Model.twoCodeName" readonly="readonly" class="INPUT_STYLE2" />
+                    </td>
+                    <td width="10%" class="TD_STYLE1">
+                        III级机构
+                    </td>
+                    <td class="TD_STYLE2" colspan="2" width="2%">
+                        <input type="text" name="threeCodeName" value="@Model.threeCodeName" readonly="readonly" class="INPUT_STYLE2" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        职位分类
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="MKName" value="@Model.MKName" readonly="readonly" class="INPUT_STYLE2" />
+
+                    </td>
+                    <td class="TD_STYLE1">
+                        职位名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="CName" value="@Model.CName" readonly="readonly" class="INPUT_STYLE2" />
+
+                    </td>
+                    <td class="TD_STYLE1">
+                        职称
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <select class="SELECT_STYLE1" name="MWei">
+                            <option>@Model.MWei</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        姓名
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" id="humanName" name="RName" value="@Model.RName"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        性别
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select class="SELECT_STYLE1" id="RSex" name="RSex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        EMAIL
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <input type="text" name="REmail" value="@Model.REmail"
+                               class="INPUT_STYLE2" id="humanEmail">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        电话
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RPhone" value="@Model.RPhone"
+                               class="INPUT_STYLE2" id="humanTelephone">
+                    </td>
+                    <td class="TD_STYLE1">
+                        QQ
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RQQ" value="@Model.RQQ"
+                               class="INPUT_STYLE2" id="humanQq">
+                    </td>
+                    <td class="TD_STYLE1">
+                        手机
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <input type="text" name="RCellphone" id="humanMobilephone"
+                               value="@Model.RCellphone" class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        住址
+                    </td>
+                    <td colspan="3" class="TD_STYLE2">
+                        <input type="text" name="RAddress" value="@Model.RAddress"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        邮编
+                    </td>
+                    <td colspan="2" class="TD_STYLE2">
+                        <input type="text" name="RPostcode" value="@Model.RPostcode"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        国籍
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RNationality" name="RNationality" class="SELECT_STYLE1">
+                            <option value="中国">中国</option>
+                            <option value="美国">美国</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        出生地
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RBirthplace" value="@Model.RBirthplace"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        生日
+                    </td>
+                    <td width="13%" class="TD_STYLE2">
+                        <input type="text" name="RBirthday" readonly="readonly"
+                               value="@Model.RBirthday" class="INPUT_STYLE2" id="birthday">
+                    </td>
+                    <td width="10%" class="TD_STYLE1">
+                        民族
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RNation" name="RNation" class="SELECT_STYLE1">
+                            <option value="汉族">汉族</option>
+                            <option value="回族">回族</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        宗教信仰
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RFaith" name="RFaith" class="SELECT_STYLE1">
+                            <option value="无">无</option>
+                            <option value="佛教">佛教</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        政治面貌
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RPolitics" name="RPolitics" class="SELECT_STYLE1">
+                            <option value="群众">群众</option>
+                            <option value="党员">党员</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        身份证号码
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RIDKA" id="humanIdCard"
+                               value="@Model.RIDKA" class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        社会保障号码
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RSecurity" value="@Model.RSecurity"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        年龄
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RAge" value="@Model.RAge"
+                               class="INPUT_STYLE2" id="humanAge">
+                    </td>
+                    <td class="TD_STYLE1">
+                        学历
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RBackground" name="RBackground" class="SELECT_STYLE1">
+                            <option value="高中">高中</option>
+                            <option value="本科">本科</option>
+                            <option value="大专">大专</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        教育年限
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RYears" name="RYears" class="SELECT_STYLE1">
+                            <option value="12">12</option>
+                            <option value="16">16</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        学历专业
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="REducation" name="REducation" class="SELECT_STYLE1">
+                            <option value="生物工程">生物工程</option>
+                            <option value="计算机">计算机</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        薪酬标准
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RSalary" name="RSalary" class="SELECT_STYLE1">
+                            <option value="薪酬标准1">薪酬标准1</option>
+                            <option value="薪酬标准2">薪酬标准2</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        开户行
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RBank" value="@Model.RBank"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        帐号
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RAccounts"
+                               value="@Model.RAccounts" class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        复核人
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RRecombination" value="谢鹏"
+                               readonly="readonly" class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        复核时间
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="RRecombinationDate"
+                               id="nowTime" readonly="readonly"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        特长
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="Rstrong" name="Rstrong" class="SELECT_STYLE1">
+                            <option value="java">java</option>
+                            <option value="数据库">数据库</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        爱好
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select id="RHobby" name="RHobby" class="SELECT_STYLE1">
+                            <option value="篮球">篮球</option>
+                            <option value="跳舞">跳舞</option>
+                        </select>
+                    </td>
+                    <td class="TD_STYLE1">
+                        &nbsp;
+                    </td>
+                    <td class="TD_STYLE2">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        档案附件
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <input type="text" name="RAccessory" value="@Model.RAccessory" hidden="hidden" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        个人履历
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea name="Rcurriculum" rows="4"
+                                  class="TEXTAREA_STYLE1">
+                            @Model.Rcurriculum
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        家庭关系信息
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea name="RFamily" rows="4"
+                                  class="TEXTAREA_STYLE1">
+                            @Model.RFamily
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        备注
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea name="RRemark" rows="4" class="TEXTAREA_STYLE1">
+                            @Model.RRemark
+                        </textarea>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

@@ -1,9 +1,9 @@
 $(function() {
 	$("#date_start").click(function() {
-		displayDatePicker('utilBean.startDate', false, 'ymd', '')
+	    displayDatePicker('RInputting', false, 'ymd', '')
 	});
 	$("#date_end").click(function() {
-		displayDatePicker('utilBean.endDate', false, 'ymd', '')
+	    displayDatePicker('RChangeDate', false, 'ymd', '')
 	});
 	$("#firstKind").change(function() {
 		$.ajax({

@@ -43,8 +43,10 @@
     <Compile Include="MajorBLL.cs" />
     <Compile Include="MajorChenBLL.cs" />
     <Compile Include="MajorKindBLL.cs" />
+    <Compile Include="MajorWeiBLL.cs" />
     <Compile Include="oneorganizationBLL.cs" />
     <Compile Include="PublicCharBLL.cs" />
+    <Compile Include="resourceBLL.cs" />
     <Compile Include="SalaryBLL.cs" />
     <Compile Include="StudentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

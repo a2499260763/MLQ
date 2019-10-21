@@ -52,8 +52,10 @@
     <Compile Include="Configer\MajorChenConfig.cs" />
     <Compile Include="Configer\MajorConfig.cs" />
     <Compile Include="Configer\MajorKindConfig.cs" />
+    <Compile Include="Configer\MajorweiConfig.cs" />
     <Compile Include="Configer\oneorganizationConfiger.cs" />
     <Compile Include="Configer\PublicCharConfiger.cs" />
+    <Compile Include="Configer\resourceConfig.cs" />
     <Compile Include="Configer\SalaryConfiger.cs" />
     <Compile Include="Configer\threeorganizationConfiger.cs" />
     <Compile Include="Configer\twoorganizationConfiger.cs" />
@@ -61,8 +63,10 @@
     <Compile Include="Entity\Major.cs" />
     <Compile Include="Entity\MajorChen.cs" />
     <Compile Include="Entity\MajorKind.cs" />
+    <Compile Include="Entity\MajorWei.cs" />
     <Compile Include="Entity\oneorganization.cs" />
     <Compile Include="Entity\PublicChar.cs" />
+    <Compile Include="Entity\resource.cs" />
     <Compile Include="Entity\Salary.cs" />
     <Compile Include="Entity\threeorganization.cs" />
     <Compile Include="Entity\twoorganization.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Entity
 {
-    public class oneorganization
+    public class oneorganization//I级机构
     {
         public int oneID { get; set; }//I级机构标识列
         public string oneCode { get; set; }//I级机构编号

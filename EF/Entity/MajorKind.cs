@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace EF.Entity
 {
-    public class MajorKind
+    public class MajorKind//职位分类设置表
     {
-        public int Id { get; set; }
+        public int Id { get; set; }//标识列主键
 
-        public string MKID { get; set; }
+        public string MKID { get; set; }//职位分类编号
 
-        public string MKName { get; set; }
+        public string MKName { get; set; }//职位分类名称
     }
 }

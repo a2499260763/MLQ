@@ -47,8 +47,10 @@
     <Compile Include="MajorChenDAO.cs" />
     <Compile Include="MajorDAO.cs" />
     <Compile Include="MajorKindDAO.cs" />
+    <Compile Include="MajorWeiDAO.cs" />
     <Compile Include="oneorganizationDAO.cs" />
     <Compile Include="PublicCharDAO.cs" />
+    <Compile Include="resourceDAO.cs" />
     <Compile Include="SalaryDAO.cs" />
     <Compile Include="StudenDAO.cs" />
     <Compile Include="DaoBase.cs" />

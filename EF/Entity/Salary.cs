@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EF.Entity
 {
-   public class Salary
+   public class Salary//薪酬项目设置
     {
-        public int SID { get; set; }
+        public int SID { get; set; }//主键标识列
 
-        public string SName { get; set; }
+        public string SName { get; set; }//薪酬项目名称
     }
 }

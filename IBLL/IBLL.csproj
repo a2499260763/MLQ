@@ -43,8 +43,10 @@
     <Compile Include="IMajorBLL.cs" />
     <Compile Include="IMajorChenBLL.cs" />
     <Compile Include="IMajorKindBLL.cs" />
+    <Compile Include="IMajorWeiBLL.cs" />
     <Compile Include="IoneorganizationBLL.cs" />
     <Compile Include="IPublicCharBLL.cs" />
+    <Compile Include="IresourceBLL.cs" />
     <Compile Include="ISalaryBLL.cs" />
     <Compile Include="IStudentBLL.cs" />
     <Compile Include="IthreeorganizationBLL.cs" />

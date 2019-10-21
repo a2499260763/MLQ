@@ -80,6 +80,30 @@ namespace DAO
             }
             return list2;
         }
+        public List<threeorganizationModel> threeorganizationWhere(string id)
+        {
+            MyDbContext db = CreateContext();
+            List<threeorganization> list = db.threeorganization.AsNoTracking()
+                .Where(e => e.twoCodeName == id)
+                .Select(e => e)
+                .ToList();
+            List<threeorganizationModel> list2 = new List<threeorganizationModel>();
+            foreach (threeorganization item in list)
+            {
+                threeorganizationModel last = new threeorganizationModel()
+                {
+                    threeID = item.threeID,
+                    oneName = item.oneName,
+                    twoCodeName = item.twoCodeName,
+                    threeCode = item.threeCode,
+                    threeCodeName = item.threeCodeName,
+                    threeCodemarket = item.threeCodemarket,
+                    threeCodepd = item.threeCodepd
+                };
+                list2.Add(last);
+            }
+            return list2;
+        }
 
         public int threeorganizationUpd(threeorganizationModel three)
         {
