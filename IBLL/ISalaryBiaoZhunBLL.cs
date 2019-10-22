@@ -9,6 +9,7 @@ namespace IBLL
 {
    public interface ISalaryBiaoZhunBLL
     {
+        List<SalaryBiaoZhunModel> SelectSalaryBiaoZhun();
         int InsertSalaryBiaoZhun(SalaryBiaoZhunModel sbzm);
 
         List<SalaryBiaoZhunModel> SalaryBiaoZhunFenYe(int currentPage, int pageSize, out int rows);

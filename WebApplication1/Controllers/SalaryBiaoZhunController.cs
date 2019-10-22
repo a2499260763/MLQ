@@ -23,6 +23,7 @@ namespace WebApplication1.Controllers
         // GET: SalaryBiaoZhun
         public ActionResult SalaryBiaoZhunDengJiIndex()
         {
+            
             //将XML文件加载进来
             XDocument document = XDocument.Load("C:/Users/MZF/Source/Repos/MLQ/WebApplication1/SBZBianHao.xml");
             //获取到XML的根元素进行操作

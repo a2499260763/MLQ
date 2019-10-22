@@ -13,6 +13,7 @@ namespace WebApplication1.Controllers
     public class LuYongController : Controller
     {
         ILuYongBLL ilyb = IocCreate.CreateBLL<ILuYongBLL>("LuYongBLL");
+        IresourceBLL ires = IocCreate.CreateBLL<IresourceBLL>("resourceBLL");
         // GET: LuYong
         public ActionResult LuYongShengQingIndex()  //录用申请主页
         {
@@ -181,9 +182,45 @@ namespace WebApplication1.Controllers
 
         public ActionResult LuYongShengPiUpdate(LuYongModel lym)  //录用申请主页
         {
+            string bian = DateTime.Now.ToString("yyMMddmmss") + new Random().Next(100, 999);
             if (ilyb.UpdateLuYong(lym) > 0)
             {
+                resourceModel res = new resourceModel();
+                res.RCode = bian;
+                res.MKName = lym.MKName;
+                res.CName = lym.MCName;
+                res.RName = lym.JlName;
+                res.RSex = lym.JlSex;
+                res.REmail = lym.JlEmail;
+                res.RPhone = lym.JlDianHua;
+                res.RCellphone = lym.JlShouJi;
+                res.RAddress = lym.JlAdds;
+                res.RPostcode = lym.JlYouBian;
+                res.RNationality = lym.JlGuoJi;
+                res.RBirthplace = lym.JlBreathAdds;
+                res.RBirthday = lym.JlBreathDay;
+                res.RNation = lym.JlMingZu;
+                res.RFaith = lym.JlZongJioaXingYang;
+                res.RPolitics = lym.JlZhengZhiMianMao;
+                res.RIDKA = lym.JlEntityCond;
+                res.RAge = lym.JlAge;
+                res.RBackground = lym.JlXueli;
+                res.RYears = Convert.ToInt32(lym.JlJiaoYvYean);
+                res.REducation = lym.JlXueLiZhuanYe;
+                res.RInputting = DateTime.Now;
+                res.Rstrong = lym.JlTeChang;
+                res.RHobby = lym.JlAiHoa;
+                res.Rcurriculum = lym.JlGeRenLvLi;
+                res.RRemark = lym.JlBeiZhu;
+                res.RChangeDate = DateTime.Now;
+                res.RState = "未复核";
+                res.RRState = 0;
+
+                ires.resourceAdd(res);
+
+
                 return RedirectToAction("LuYongShengPiIndex");
+
             }
             else
                 return View(lym);
