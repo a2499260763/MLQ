@@ -8,22 +8,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SelectDelWhereOnes</title>
+    <title>SelectMianshi</title>
     <link href="~/css/table.css" rel="stylesheet" />
-    <script src="~/javascript/vue-2.4.0.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/javascript/vue-2.4.0.js"></script>
+   
 </head>
 <body>
     <div id="div123">
         <table width="100%">
             <tr>
                 <td>
-                    <font color="black">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案恢复删除 </font>
+                    <font color="black">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案登记复核 </font>
                 </td>
             </tr>
             <tr>
                 <td>
-                    符合条件的人力资源档案总数：{{pages}}例
+                    当前等待复核的人力资源档案总数： {{pages}} 例
                 </td>
             </tr>
         </table>
@@ -31,13 +32,13 @@
                bordercolorlight=#848284 bordercolordark=#eeeeee
                class="TABLE_STYLE1">
             <tr class="TR_STYLE1">
-                <td width="16%" class="TD_STYLE1">
+                <td width="13%" class="TD_STYLE1">
                     档案编号
                 </td>
                 <td width="13%" class="TD_STYLE1">
                     姓名
                 </td>
-                <td width="8%" class="TD_STYLE1">
+                <td width="11%" class="TD_STYLE1">
                     性别
                 </td>
                 <td width="14%" class="TD_STYLE1">
@@ -50,37 +51,39 @@
                     III级机构
                 </td>
                 <td width="14%" class="TD_STYLE1">
-                    职位分类
+                    职称
                 </td>
                 <td width="7%" class="TD_STYLE1">
-                    职位名称
+                    登记
                 </td>
             </tr>
 
-            <tr class="TR_STYLE2" v-for="(item,index) in nums">
-                <td width="16%" class="TD_STYLE2">
-                    <a v-on:click="select(item.RCode)">{{item.RCode}}</a>
+            <tr v-for="(item,index) in nums">
+                <td class="TD_STYLE2">
+                    {{item.RCode}}
                 </td>
-                <td width="13%" class="TD_STYLE2">
+                <td class="TD_STYLE2">
                     {{item.RName}}
                 </td>
-                <td width="8%" class="TD_STYLE2">
+                <td class="TD_STYLE2">
                     {{item.RSex}}
                 </td>
-                <td width="14%" class="TD_STYLE2">
+                <td class="TD_STYLE2">
                     {{item.oneCodeName}}
                 </td>
-                <td width="14%" class="TD_STYLE2">{{item.twoCodeName}}</td>
-                <td width="14%" class="TD_STYLE2">{{item.threeCodeName}}</td>
-                <td width="14%" class="TD_STYLE2">
-                    {{item.MKName}}
+                <td class="TD_STYLE2">
+                    {{item.twoCodeName}}
                 </td>
-                <td width="7%" class="TD_STYLE2">
-                    {{item.CName}}
+                <td class="TD_STYLE2">
+                    {{item.threeCodeName}}
+                </td>
+                <td class="TD_STYLE2">
+                    {{item.MWei}}
+                </td>
+                <td class="TD_STYLE2">
+                    <a v-on:click="fuhe(item.RCode)">登记</a>
                 </td>
             </tr>
-
-
 
         </table>
         <p style="text-align: center;">
@@ -110,14 +113,17 @@
                 currentPage: 1,
                 PageSize: 1,
                 pages: 0,
+                RState: "未复核",
+                RRState: 0,
+                dj:"已登记",
             },
             methods: {
                 FenYe: function () {
                     var t = this;
                     $.ajax({
-                        url: "/resource/SelectDelWhereOnesFenYe",
+                        url: "../resource/FenYeresource",
                         type: "post",
-                        data: "currentPage=" + t.currentPage + "&PageSize=" + t.PageSize,
+                        data: "dj="+t.dj+"&RRState=" + t.RRState + "&RState=" + t.RState + "&currentPage=" + t.currentPage + "&PageSize=" + t.PageSize,
                         success: function (msg) {
                             t.nums = eval("(" + msg + ")")["list"];
                             t.rows = eval("(" + msg + ")")["rows"];
@@ -125,8 +131,8 @@
                         }
                     })
                 },
-                select: function (code) {
-                    window.location.href = '/resource/SelectDelWhereOnesRes?code=' + code;
+                fuhe: function (RCode) {
+                    location.href = '../resource/Insertresource?RCode=' + RCode;
                 },
                 Next: function () {
                     if (this.currentPage + 1 <= this.pages) {

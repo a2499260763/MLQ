@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class grantModel
+    public class grantModel  //薪酬发放登记表
     {
         public int GID { get; set; } //主键，自动增长列      
         public string GCode { get; set; } //薪酬发放编号         

@@ -26,16 +26,25 @@ namespace WebApplication1.Controllers
         IMajorKindBLL ikind = IocCreate.CreateBLL<IMajorKindBLL>("MajorKindBLL");
         IMajorWeiBLL iwei = IocCreate.CreateBLL<IMajorWeiBLL>("MajorWeiBLL");
         IMajorChenBLL ichen = IocCreate.CreateBLL<IMajorChenBLL>("MajorChenBLL");
+        ISalaryBiaoZhunBLL ixcbz = IocCreate.CreateBLL<ISalaryBiaoZhunBLL>("SalaryBiaoZhunBLL");
         // GET: resource
         public ActionResult SelectMianshi()
         {
             return View("SelectMianshi");
         }
-        public ActionResult Insertresource()
+
+        public ActionResult Insertresource(string RCode)
         {
-            string bian = DateTime.Now.ToString("yyMMddmmss") + new Random().Next(100, 999);
-            ViewData["s"] = bian;
-            return View("Insertresource");
+            //string bian = DateTime.Now.ToString("yyMMddmmss") + new Random().Next(100, 999);
+            //ViewData["s"] = bian;
+            resourceModel res = ires.resourceSelectWhere(RCode)[0];
+            return View("Insertresource",res);
+        }
+        public ActionResult Selectxcbz()
+        {
+            
+            List<SalaryBiaoZhunModel>list = ixcbz.SelectSalaryBiaoZhun();
+            return Content(JsonConvert.SerializeObject(list));
         }
         public ActionResult Selectone()
         {
@@ -56,7 +65,7 @@ namespace WebApplication1.Controllers
         }
         public ActionResult InsertWhereresource(resourceModel res)
         {
-            if (ires.resourceAdd(res) > 0)
+            if (ires.resourceUpd(res) > 0)
             {
                 string code = res.RCode;
                 Response.Write("<script>alert('登记成功')</script>");
@@ -127,16 +136,18 @@ namespace WebApplication1.Controllers
         {
             return View("Selectresource");
         }
-        public ActionResult FenYeresource(int RRState, string RState,int currentPage, int PageSize)
+        public ActionResult FenYeresource(string dj,int RRState, string RState,int currentPage, int PageSize)
         {
-            int rows = 0;
             
-            List<resourceModel> list = ires.resourceFenYe(RRState, RState, currentPage, PageSize, out rows);
-            Dictionary<string, object> dic = new Dictionary<string, object>()
-            {
-                {"list",list }, {"rows",rows }
-            };
-            return Content(JsonConvert.SerializeObject(dic));
+                int rows = 0;
+            
+                List<resourceModel> list = ires.resourceFenYe(RRState, RState, currentPage, PageSize, out rows);
+                Dictionary<string, object> dic = new Dictionary<string, object>()
+                {
+                    {"list",list }, {"rows",rows }
+                };
+                return Content(JsonConvert.SerializeObject(dic));
+            
         }
         public ActionResult GetRow()
         {

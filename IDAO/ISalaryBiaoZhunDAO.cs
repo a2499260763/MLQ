@@ -9,6 +9,7 @@ namespace IDAO
 {
    public interface ISalaryBiaoZhunDAO
     {
+        List<SalaryBiaoZhunModel> SelectSalaryBiaoZhun();
         int InsertSalaryBiaoZhun(SalaryBiaoZhunModel sbzm);
 
         List<SalaryBiaoZhunModel> SalaryBiaoZhunFenYe(int currentPage, int pageSize, out int rows);

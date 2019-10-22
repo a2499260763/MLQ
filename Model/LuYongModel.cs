@@ -10,18 +10,18 @@ namespace Model
     {
         public int Id { get; set; }
 
+        public string MKName { get; set; }//职位分类
+        public string MCName { get; set; }//职位名称
 
-        public string MCName { get; set; }
+        
 
-        public string MKName { get; set; }
+        public string ZPName { get; set; }//招聘类型
 
-        public string ZPName { get; set; }
+        public string JlName { get; set; }//姓名
 
-        public string JlName { get; set; }
+        public string JlSex { get; set; }//性别
 
-        public string JlSex { get; set; }
-
-        public string JlEmail { get; set; }
+        public string JlEmail { get; set; }//EMAIL
 
         public string JlDianHua { get; set; }  //电话
 
@@ -36,16 +36,10 @@ namespace Model
         public string JlGuoJi { get; set; } //国籍
 
         public string JlBreathAdds { get; set; } //出生地
-
-        /// <summary>
-        /// 生日
-        /// </summary>
-        public string JlBreathDay { get; set; } //
-
-        /// <summary>
-        /// 名族
-        /// </summary>
-        public string JlMingZu { get; set; }
+        
+        public string JlBreathDay { get; set; } //生日
+        
+        public string JlMingZu { get; set; }//名族
 
         public string JlZongJioaXingYang { get; set; } //宗教信仰
 

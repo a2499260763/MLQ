@@ -57,6 +57,8 @@
 			//获得系统当前时间的方法
 		  	tick();
 		}
+		   
+		})
     </script>
 </head>
 <body>
@@ -64,7 +66,7 @@
         @using (Html.BeginForm("InsertWhereresource", "resource", FormMethod.Post))
         {
 
-            <input id="Text1" type="text" name="RCode" value="@ViewData["s"]" hidden="hidden" />
+            <input id="Text1" type="text" name="RCode" value="@Model.RCode" hidden="hidden" />
             <table width="100%">
                 <tr>
                     <td>
@@ -121,9 +123,8 @@
                         职位分类
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="MKName" class="SELECT_STYLE1" id="majorKind" v-on:change="kk">
-                            <option>请选择</option>
-                            <option v-for="(item,index) in k" v-bind:value="item.MKName" >{{item.MKName}}</option>
+                        <select name="MKName" class="SELECT_STYLE1" id="MKName" >
+                            <option value="@Model.MKName">@Model.MKName</option>
                         </select>
                         <input type="hidden" name="humanFile.humanMajorKindName" />
                     </td>
@@ -131,9 +132,8 @@
                         职位名称
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="CName" class="SELECT_STYLE1" id="majorName">
-                            <option>请选择</option>
-                            <option v-for="(item,index) in shitu" v-bind:value="item.CName">{{item.CName}}</option>
+                        <select name="CName" class="SELECT_STYLE1" id="CName">
+                            <option value="@Model.CName">@Model.CName</option>
                         </select>
                         <input type="hidden" name="humanFile.hunmaMajorName" />
                     </td>
@@ -152,19 +152,16 @@
                         姓名
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" id="humanName" name="RName"
-                               class="INPUT_STYLE2" />
+                        <input type="text" id="RName" name="RName"
+                               class="INPUT_STYLE2" value="@Model.RName" />
                     </td>
                     <td class="TD_STYLE1">
                         性别
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RSex" class="SELECT_STYLE1">
-                            <option value="男" selected="selected">
-                                男
-                            </option>
-                            <option value="女">
-                                女
+                        <select name="RSex" id="RSex" class="SELECT_STYLE1">
+                            <option value="@Model.RSex" selected="selected">
+                                @Model.RSex
                             </option>
                         </select>
                     </td>
@@ -172,8 +169,8 @@
                         EMAIL
                     </td>
                     <td colspan="2" class="TD_STYLE2">
-                        <input type="text" name="REmail" id="humanEmail"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="REmail" id="REmail"
+                               class="INPUT_STYLE2" value="@Model.REmail" >
                     </td>
                 </tr>
                 <tr>
@@ -181,22 +178,22 @@
                         电话
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RPhone" id="humanTelephone"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RPhone" id="RPhone"
+                               class="INPUT_STYLE2" value="@Model.RPhone" >
                     </td>
                     <td class="TD_STYLE1">
                         QQ
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RQQ" id="humanQq"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RQQ" id="RQQ"
+                               class="INPUT_STYLE2" value="@Model.RQQ">
                     </td>
                     <td class="TD_STYLE1">
                         手机
                     </td>
                     <td colspan="2" class="TD_STYLE2">
-                        <input type="text" name="RCellphone" id="humanMobilephone"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RCellphone" id="RCellphone"
+                               class="INPUT_STYLE2" value="@Model.RCellphone" >
                     </td>
                 </tr>
                 <tr>
@@ -204,15 +201,15 @@
                         住址
                     </td>
                     <td colspan="3" class="TD_STYLE2">
-                        <input type="text" name="RAddress"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RAddress" id="RAddress"
+                               class="INPUT_STYLE2" value="@Model.RAddress" >
                     </td>
                     <td class="TD_STYLE1">
                         邮编
                     </td>
                     <td colspan="2" class="TD_STYLE2">
-                        <input type="text" name="RPostcode"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RPostcode" id="RPostcode"
+                               class="INPUT_STYLE2" value="@Model.RPostcode" >
                     </td>
                 </tr>
                 <tr>
@@ -220,32 +217,30 @@
                         国籍
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RNationality" class="SELECT_STYLE1">
-                            <option value="中国">中国</option>
-                            <option value="美国">美国</option>
+                        <select name="RNationality" id="RNationality" class="SELECT_STYLE1">
+                            <option value="@Model.RNationality">@Model.RNationality</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         出生地
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RBirthplace"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RBirthplace" id="RBirthplace"
+                               class="INPUT_STYLE2" value="@Model.RBirthplace" >
                     </td>
                     <td class="TD_STYLE1">
                         生日
                     </td>
                     <td width="13%" class="TD_STYLE2">
                         <input type="text" name="RBirthday" 
-                               class="INPUT_STYLE2" id="birthday">
+                               class="INPUT_STYLE2" id="RBirthday" value="@Model.RBirthday" >
                     </td>
                     <td width="11%" class="TD_STYLE1">
                         民族
                     </td>
                     <td class="TD_STYLE2" width="14%">
-                        <select name="RNation" class="SELECT_STYLE1">
-                            <option value="汉族">汉族</option>
-                            <option value="回族">回族</option>
+                        <select name="RNation" id="RNation" class="SELECT_STYLE1">
+                            <option value="@Model.RNation">@Model.RNation</option>
                         </select>
                     </td>
                 </tr>
@@ -254,33 +249,31 @@
                         宗教信仰
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RFaith" class="SELECT_STYLE1">
-                            <option value="无">无</option>
-                            <option value="佛教">佛教</option>
+                        <select name="RFaith" id="RFaith" class="SELECT_STYLE1">
+                            <option value="@Model.RFaith">@Model.RFaith</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         政治面貌
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RPolitics" class="SELECT_STYLE1">
-                            <option value="群众">群众</option>
-                            <option value="党员">党员</option>
+                        <select name="RPolitics" id="RPolitics" class="SELECT_STYLE1">
+                            <option value="@Model.RPolitics">@Model.RPolitics</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         身份证号码
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RIDKA" id="humanIdCard"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RIDKA" id="RIDKA"
+                               class="INPUT_STYLE2" value="@Model.RIDKA" >
                     </td>
                     <td class="TD_STYLE1">
                         社会保障号码
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RSecurity"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RSecurity" id="RSecurity"
+                               class="INPUT_STYLE2" value="@Model.RSecurity" >
                     </td>
                 </tr>
                 <tr>
@@ -288,35 +281,31 @@
                         年龄
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RAge" id="humanAge"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RAge" id="RAge"
+                               class="INPUT_STYLE2" value="@Model.RAge" >
                     </td>
                     <td class="TD_STYLE1">
                         学历
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RBackground" class="SELECT_STYLE1">
-                            <option value="高中">高中</option>
-                            <option value="本科">本科</option>
-                            <option value="大专">大专</option>
+                        <select name="RBackground" id="RBackground" class="SELECT_STYLE1">
+                            <option value="@Model.RBackground">@Model.RBackground</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         教育年限
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RYears" class="SELECT_STYLE1">
-                            <option value="12">12</option>
-                            <option value="16">16</option>
+                        <select name="RYears" id="RYears" class="SELECT_STYLE1">
+                            <option value="@Model.RYears">@Model.RYears</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         学历专业
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="REducation" class="SELECT_STYLE1">
-                            <option value="生物工程">生物工程</option>
-                            <option value="计算机">计算机</option>
+                        <select name="REducation" id="REducation" class="SELECT_STYLE1">
+                            <option value="@Model.REducation">@Model.REducation</option>
                         </select>
                     </td>
                 </tr>
@@ -325,30 +314,29 @@
                         薪酬标准
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RSalary" class="SELECT_STYLE1">
-                            <option value="薪酬标准1">薪酬标准1</option>
-                            <option value="薪酬标准2">薪酬标准2</option>
+                        <select name="RSalary" id="RSalary" class="SELECT_STYLE1">
+                            <option v-for="(item,index) in xcbzq" v-bind:value="item.SBZName">{{item.SBZName}}</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         开户行
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RBank"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RBank" id="RBank"
+                               class="INPUT_STYLE2" value="@Model.RBank" >
                     </td>
                     <td class="TD_STYLE1">
                         帐号
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RAccounts"
-                               class="INPUT_STYLE2">
+                        <input type="text" name="RAccounts" id="RAccounts"
+                               class="INPUT_STYLE2" value="@Model.RAccounts" >
                     </td>
                     <td class="TD_STYLE1">
                         登记人
                     </td>
                     <td class="TD_STYLE2">
-                        <input type="text" name="RRegistrant" value="谢鹏"
+                        <input type="text" name="RRegistrant" id="RRegistrant" value="谢鹏"
                                readonly="readonly" class="INPUT_STYLE2">
                     </td>
                 </tr>
@@ -358,25 +346,23 @@
                     </td>
                     <td class="TD_STYLE2">
                         <input type="text" name="RInputting"
-                               id="nowTime" readonly="readonly"
-                               class="INPUT_STYLE2">
+                               id="RInputting" readonly="readonly"
+                               class="INPUT_STYLE2" value="@Model.RInputting" >
                     </td>
                     <td class="TD_STYLE1">
                         特长
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="Rstrong" class="SELECT_STYLE1">
-                            <option value="java">java</option>
-                            <option value="数据库">数据库</option>
+                        <select name="Rstrong" id="Rstrong" class="SELECT_STYLE1">
+                            <option value="@Model.Rstrong">@Model.Rstrong</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
                         爱好
                     </td>
                     <td class="TD_STYLE2">
-                        <select name="RHobby" class="SELECT_STYLE1">
-                            <option value="篮球">篮球</option>
-                            <option value="跳舞">跳舞</option>
+                        <select name="RHobby" id="RHobby" class="SELECT_STYLE1">
+                            <option value="@Model.RHobby">@Model.RHobby</option>
                         </select>
                     </td>
                     <td class="TD_STYLE1">
@@ -391,8 +377,8 @@
                         个人履历
                     </td>
                     <td colspan="7" class="TD_STYLE2">
-                        <textarea name="Rcurriculum" rows="4"
-                                  class="TEXTAREA_STYLE1"></textarea>
+                        <textarea name="Rcurriculum" id="Rcurriculum" rows="4"
+                                  class="TEXTAREA_STYLE1">@Model.Rcurriculum</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -400,8 +386,8 @@
                         家庭关系信息
                     </td>
                     <td colspan="7" class="TD_STYLE2">
-                        <textarea name="RFamily" rows="4"
-                                  class="TEXTAREA_STYLE1"></textarea>
+                        <textarea name="RFamily" id="RFamily" rows="4"
+                                  class="TEXTAREA_STYLE1">@Model.RFamily</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -409,7 +395,7 @@
                         备注
                     </td>
                     <td colspan="7" class="TD_STYLE2">
-                        <textarea name="RRemark" rows="4" class="TEXTAREA_STYLE1"></textarea>
+                        <textarea name="RRemark" id="RRemark" rows="4" class="TEXTAREA_STYLE1">@Model.RRemark</textarea>
                     </td>
                 </tr>
 
@@ -432,7 +418,9 @@
                 k: "",
                 shitu: "",
                 whei:"",
+                xcbzq:"",
             },
+            
             methods: {
                 load: function () {
                     var t = this;
@@ -442,6 +430,17 @@
                         success: function (msg) {
                             var dt = eval("(" + msg + ")");
                             t.nums = dt;
+                        }
+                    })
+                },
+                xcbz: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/Insertresource",
+                        type:"post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.xcbzq = dt;
                         }
                     })
                 },
@@ -480,18 +479,6 @@
                         }
                     })
                 },
-                kk: function () {
-                    var t = this;
-                    var id = $("#majorKind").val();
-                    $.ajax({
-                        url: "/resource/SelectWhereMajor/" + id,
-                        type: "post",
-                        success: function (msg) {
-                            var dt = eval("(" + msg + ")");
-                            t.shitu = dt;
-                        }
-                    })
-                },
                 wei: function () {
                     var t = this;
                     $.ajax({
@@ -508,6 +495,7 @@
                 this.load();
                 this.kind();
                 this.wei();
+                this.xcbz();
             }
         })
     </script>

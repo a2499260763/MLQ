@@ -13,6 +13,8 @@ namespace DAO
 {
     public class SalaryBiaoZhunDAO : DaoBase<SalaryBiaoZhun>, ISalaryBiaoZhunDAO
     {
+
+    
         public int InsertSalaryBiaoZhun(SalaryBiaoZhunModel sbzm)
         {
             SalaryBiaoZhun sbz = new SalaryBiaoZhun()
@@ -100,6 +102,39 @@ namespace DAO
                 };
             }
             return sbzm;
+        }
+
+        public List<SalaryBiaoZhunModel> SelectSalaryBiaoZhun()
+        {
+            List<SalaryBiaoZhun> list = Select();
+            List<SalaryBiaoZhunModel> list2 = new List<SalaryBiaoZhunModel>();
+            foreach (var p in list)
+            {
+                SalaryBiaoZhunModel sbz = new SalaryBiaoZhunModel()
+                {
+                    Id = p.Id,
+                    SBZBeiZhu = p.SBZBeiZhu,
+                    SBZDengJiTime = p.SBZDengJiTime,
+                    SBZDengJiRen = p.SBZDengJiRen,
+                    SalaryChuCai = p.SalaryChuCai,
+                    SalaryChuCaiID = p.SalaryChuCaiID,
+                    SalaryJiaoTong = p.SalaryJiaoTong,
+                    SalaryJiaoTongID = p.SalaryJiaoTongID,
+                    SBZChuCaiJinE = p.SBZChuCaiJinE,
+                    SBZJiaoTongJinE = p.SBZJiaoTongJinE,
+                    SBZBianHao = p.SBZBianHao,
+                    SBZName = p.SBZName,
+                    SBZZhiDingRen = p.SBZZhiDingRen,
+                    SBZZongE = p.SBZZongE,
+                    SBZFuHeRen = p.SBZFuHeRen,
+                    SBZFuHeTime = p.SBZFuHeTime,
+                    SBZFuHeYiJian = p.SBZFuHeYiJian,
+                    SBZBianGengRen = p.SBZBianGengRen,
+                    SBZBianGenTime = p.SBZBianGenTime
+                };
+                list2.Add(sbz);
+            }
+            return list2;
         }
 
         public int UpdaeSalaryBiaoZhun(SalaryBiaoZhunModel p)

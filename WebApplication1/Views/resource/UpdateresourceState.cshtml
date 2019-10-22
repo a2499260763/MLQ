@@ -388,8 +388,7 @@
                 </td>
                 <td class="TD_STYLE2">
                     <select id="RSalary" name="RSalary" class="SELECT_STYLE1">
-                        <option value="薪酬标准1">薪酬标准1</option>
-                        <option value="薪酬标准2">薪酬标准2</option>
+                        <option v-for="(item,index) in xcbzq" v-bind:value="item.SBZName">{{item.SBZName}}</option>
                     </select>
                 </td>
                 <td class="TD_STYLE1">
@@ -491,5 +490,31 @@
         </table>
         }
     </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#div123",
+            data: {
+                xcbzq:"",
+            },
+
+            methods: {
+                
+                xcbz: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/resource/Selectxcbz",
+                        type:"post",
+                        success: function (msg) {
+                            var dt = eval("(" + msg + ")");
+                            t.xcbzq = dt;
+                        }
+                    })
+                },
+            },
+            created: function () {
+                this.xcbz();
+            }
+        })
+    </script>
 </body>
 </html>

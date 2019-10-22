@@ -29,6 +29,11 @@ namespace BLL
             return isbz.SalaryBiaoZhunWhere(Id);
         }
 
+        public List<SalaryBiaoZhunModel> SelectSalaryBiaoZhun()
+        {
+            return isbz.SelectSalaryBiaoZhun();
+        }
+
         public int UpdaeSalaryBiaoZhun(SalaryBiaoZhunModel sbzm)
         {
             return isbz.UpdaeSalaryBiaoZhun(sbzm);

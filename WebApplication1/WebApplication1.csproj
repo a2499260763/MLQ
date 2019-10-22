@@ -638,6 +638,7 @@
     <Content Include="mod_image\training_check_list.gif" />
     <Content Include="mod_image\training_query_locate.gif" />
     <Content Include="mod_image\training_register_locate.gif" />
+    <Content Include="SBZBianHao.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="images\Thumbs.db" />
@@ -650,6 +651,7 @@
     <Content Include="Wp\Uploader.swf" />
     <Content Include="Wp\webuploader.css" />
     <Content Include="Wp\webuploader.js" />
+    <Content Include="Views\SalaryBiaoZhun\SalaryBiaoZhunDengJiIndex.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -784,6 +786,7 @@
     <Content Include="Views\Jl\JlShaiXueIndexUpdate.cshtml" />
     <Content Include="Views\Jl\JlYouXiuIndex.cshtml" />
     <Content Include="Views\Jl\JlYouXiuIndexShow.cshtml" />
+    <Content Include="Views\resource\SelectMianshi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
