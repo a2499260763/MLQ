@@ -186,9 +186,10 @@ namespace WebApplication1.Controllers
             }
         }
 
-        public ActionResult UpdeteResult(int Role_id)
+        public ActionResult UpdeteResult(int id)
         {
-            return View("UpdeteResult", iro.SelectRoleBy(Role_id));
+            return View("UpdeteResult", iro.SelectOne(id));
+         
         }
 
         public ActionResult Index2Up(RoleModel uu, string[] rightCodes)
@@ -218,14 +219,47 @@ namespace WebApplication1.Controllers
                 }
                 if (pan)
                 {
-                    return Content("<script>alert('操作成功');location.href='/JurisdictionController/SelectRole'</script>");
+                    return Content("<script>alert('操作成功');location.href='/Jurisdiction/SelectRole'</script>");
                 }
                 else
                 {
-                    return Content("<script>alert('操作失败');location.href='/JurisdictionController/SelectRole'</script>");
+                    return Content("<script>alert('操作失败');location.href='/Jurisdiction/SelectRole'</script>");
                 }
             }
-            return Content("<script>location.href='/JurisdictionController/SelectRole'</script>");
+            return Content("<script>location.href='/Jurisdiction/SelectRole'</script>");
+        }
+
+
+        public ActionResult UpQx(int low)
+        {
+            List<AccessModel> li = acc.select2(low);
+            return Content(JsonConvert.SerializeObject(li));
+        }
+
+
+
+
+        public ActionResult Denglus(UserModel uu)
+        {
+            List<UserModel> li = isb.login(uu.user_name,uu.user_password);
+            if (li.Count != 0)
+            {
+                Session["Role_id"] = li[0].Role_id;
+                Session["UserID"] = li[0].user_id;
+                Session["UserName"] = li[0].user_name;
+                return Content("<script>alert('登录成功');location.href='/frameset/Index';</script>");
+            }
+            else
+            {
+                return Content("<script>alert('登录失败');location.href='/Jurisdiction/Denglu';</script>");
+            }
+
+        }
+
+
+        public ActionResult Denglu()
+        {
+          return View("Denglu");
         }
 
 

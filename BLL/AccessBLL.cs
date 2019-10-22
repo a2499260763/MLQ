@@ -34,12 +34,12 @@ namespace BLL
 
         public List<AccessModel> select(string JSID, string fuID)
         {
-            return select(JSID, fuID);
+            return iub.select(JSID, fuID);
         }
 
         public List<AccessModel> select2(int JSID)
         {
-            return select2(JSID);
+            return iub.select2(JSID);
         }
 
         public List<AccessModel> SelectAll()
@@ -49,7 +49,7 @@ namespace BLL
 
         public AccessModel selecttiao(string name)
         {
-            return selecttiao(name);
+            return iub.selecttiao(name);
         }
 
         public int Update(AccessModel t)

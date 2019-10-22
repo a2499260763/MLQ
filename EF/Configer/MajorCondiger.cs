@@ -12,7 +12,7 @@ namespace EF.Configer
     {
         public MajorCondiger()
         {
-            this.ToTable("Major");
+            this.ToTable("MajorZW");
             this.Property(e => e.MKID).HasMaxLength(50).IsRequired();
             this.Property(e => e.MKName).HasMaxLength(50).IsRequired();
             this.Property(e => e.MWID).HasMaxLength(50).IsRequired();

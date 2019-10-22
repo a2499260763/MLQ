@@ -19,12 +19,12 @@ namespace BLL
 
         public int Adds(int id, int Tid)
         {
-            return Adds(id, Tid);
+            return iub.Adds(id, Tid);
         }
 
         public int dels(int Tid)
         {
-            return dels(Tid);
+            return iub.dels(Tid);
         }
 
         public int RoleAdd(RoleModel sm)
@@ -55,6 +55,11 @@ namespace BLL
         public int RoleUpdate(RoleModel sm)
         {
             return iub.RoleUpdate(sm);
+        }
+
+        public RoleModel SelectOne(int id)
+        {
+            return iub.SelectOne(id);
         }
 
         public List<RoleModel> SelectRoleBy(int id)

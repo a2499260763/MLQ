@@ -24,12 +24,12 @@
             </tr>
             <tr>
                 <td>
-                    当前角色总数：8例
+                    当前角色总数：{{JueNum}}例
                 </td>
             </tr>
             <tr>
                 <td align="right">
-                    <input type="button" value="添加角色" class="BUTTON_STYLE1" onclick="location.href='right_add.html'">
+                    <input type="button" value="添加角色" class="BUTTON_STYLE1" v-on:click="add()" >
                 </td>
             </tr>
         </table>
@@ -109,7 +109,7 @@
                 currentPage: 1,
                 PageSize: 3,
                 pages: 0,
-                JueNum:0
+                JueNum: 1,
             },
             methods: {
                 FenYe: function () {
@@ -144,28 +144,33 @@
                     this.FenYe();
                 },
                 sc: function (id) {
-                    if (confirm("确定删除此用户吗？")) {
+                    if (confirm("确定删除此角色吗？")) {
                         alert("删除成功")
                         location = "../Jurisdiction/Del1/" + id;
                     }
                 },
                 Jueshu: function () {
-                    var t = this
+                    var t=this
                     $.ajax({
                         url: "../Jurisdiction/Jueshu",
                         type: "get",
                         success: function (msg) {
-
+                          
                             t.JueNum = eval("" + msg + "");
                         }
                     });
+                
                 },
-                up:function (id) {
-                    if (confirm("确定删除此用户吗？")) {
+                up: function (id) {
+                    if (confirm("确定修改此角色吗？")) {
                       
-                        location = "../Jurisdiction/Del1/" + id;
+                        location = '../Jurisdiction/UpdeteResult/' + id;
                     }
+
                 },
+                add: function () {
+                    location = "../Jurisdiction/RoleAdd";
+                }
             },
                 created: function () {
                     this.FenYe();

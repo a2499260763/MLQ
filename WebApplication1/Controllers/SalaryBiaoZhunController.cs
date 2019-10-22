@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         public ActionResult SalaryBiaoZhunDengJiIndex()
         {
             //将XML文件加载进来
-            XDocument document = XDocument.Load("D:/kelong/WebApplication2/SBZBianHao.xml");
+            XDocument document = XDocument.Load("C:/Users/MZF/Source/Repos/MLQ/WebApplication1/SBZBianHao.xml");
             //获取到XML的根元素进行操作
             XElement root = document.Root;
             XElement ele = root.Element("BOOK");
@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
             XElement book = new XElement("BOOK");
             book.SetElementValue("name", id + 1);
             root1.Add(book);
-            root1.Save("D:/kelong/WebApplication2/SBZBianHao.xml");
+            root1.Save("C:/Users/MZF/Source/Repos/MLQ/WebApplication1/SBZBianHao.xml");
 
             ViewBag.SalaryID = "SBZ00" + id;
             return View(isb.SalarySelect());

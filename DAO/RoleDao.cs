@@ -44,6 +44,24 @@ namespace DAO
             throw new NotImplementedException();
         }
 
+        public RoleModel SelectOne(int id)
+        {
+            MyDbContext db = CreateContext();
+            var li = db.Role.SqlQuery("select * from Role where Role_id=" + id);
+            RoleModel list2 = new RoleModel();
+            foreach (var p in li)
+            {
+                list2 = new RoleModel()
+                {
+                    Role_id = p.Role_id,
+                    Role_Name = p.Role_Name,
+                    Role_shuo = p.Role_shuo,
+                    Role_bool = p.Role_bool
+                };
+            }
+            return list2;
+        }
+
         public List<RoleModel> RoleSelect()
         {
             List<Role> list = Select();

@@ -25,13 +25,13 @@
     <script type="text/javascript">
         $(function () {
             $.ajax({
-                url: "/User/UpQx",
+                url: "/Jurisdiction/UpQx",
                 type: "post",
                 data:"low="+@Model.Role_id,
                 success:function(zhi){
                     var dt=eval("("+zhi+")");
                     for(var i=0;i<dt.length;i++){
-                        $("input[value='"+dt[i].text+"']").attr("checked",true);
+                       $("input[value='"+dt[i].text+"']").attr("checked",true);
                     }
                 }
             })
@@ -39,8 +39,8 @@
     </script>
 </head>
 <body>
-    @using (Html.BeginForm("Index2Up", "User", FormMethod.Post))
-    {
+        @using (Html.BeginForm("Index2Up", "Jurisdiction", FormMethod.Post))
+        {
         <table width="100%">
             <tr>
                 <td>
@@ -62,11 +62,11 @@
             <tr>
                 <td class="TD_STYLE1">角色编号</td>
                 <td class="TD_STYLE2">@Model.Role_id</td>
-                @Html.Hidden("JSID", Model.Role_id, new { })
+                @Html.Hidden("Role_id", Model.Role_id, new { })
                 <td class="TD_STYLE1">角色名称</td>
                 <td class="TD_STYLE2">
                     <input type="text" class="INPUT_STYLE2" value="@Model.Role_Name"
-                           name="JSName" />
+                           name="Role_Name" />
                     <input type="hidden" name="sysRole.roleId" value="2" />
                 </td>
             </tr>
@@ -74,13 +74,13 @@
                 <td class="TD_STYLE1">角色说明</td>
                 <td class="TD_STYLE2">
                     <input type="text" class="INPUT_STYLE2" value="@Model.Role_shuo"
-                           name="JSSay" />
+                           name="Role_shuo" />
                 </td>
                 <td class="TD_STYLE1">角色是否可用</td>
                 <td class="TD_STYLE2">
-                    <select name="JYN" id="powerAction!doModifyRight_sysRole_roleFlag">
+                    <select name="Role_bool" id="powerAction!doModifyRight_sysRole_roleFlag">
                         @{
-                            if (Model.Role_bool=="是")
+                            if (Model.Role_bool == "是")
                             {
                                 <option value="否">否</option>
                                 <option value="是" selected="selected">是</option>
@@ -532,7 +532,7 @@
                                     <tr>
 
                                         <td>
-                                            <input type="checkbox" name="rightCodes" value="Ⅰ级机构设置" id="powerAction!doModifyRight_rightCodes" class="children_ck" />
+                                            <input type="checkbox" name="rightCodes" value="I级机构设置" id="powerAction!doModifyRight_rightCodes" class="children_ck" />
                                             <input type="hidden" id="__checkbox_powerAction!doModifyRight_rightCodes" name="__checkbox_rightCodes" value="L060101" />
                                             &#8544;&#32423;&#26426;&#26500;&#35774;&#32622;
                                         </td>
@@ -540,7 +540,7 @@
 
 
                                         <td>
-                                            <input type="checkbox" name="rightCodes" value="Ⅱ级机构设置" id="powerAction!doModifyRight_rightCodes" class="children_ck" />
+                                            <input type="checkbox" name="rightCodes" value="II级机构设置" id="powerAction!doModifyRight_rightCodes" class="children_ck" />
                                             <input type="hidden" id="__checkbox_powerAction!doModifyRight_rightCodes" name="__checkbox_rightCodes" value="L060102" />
                                             &#8545;&#32423;&#26426;&#26500;&#35774;&#32622;
                                         </td>
@@ -548,7 +548,7 @@
 
 
                                         <td>
-                                            <input type="checkbox" name="rightCodes" value="Ⅲ级机构设置" id="powerAction!doModifyRight_rightCodes" class="children_ck" />
+                                            <input type="checkbox" name="rightCodes" value="III级机构设置" id="powerAction!doModifyRight_rightCodes" class="children_ck" />
                                             <input type="hidden" id="__checkbox_powerAction!doModifyRight_rightCodes" name="__checkbox_rightCodes" value="L060103" />
                                             &#8546;&#32423;&#26426;&#26500;&#35774;&#32622;
                                         </td>
@@ -732,42 +732,5 @@
         </table>
         <hr />
                             }
-    @*<script type="text/javascript">
-                    function byDefault(){
-                    var arr=new Array();
-
-
-                            arr[0]='L02';
-
-                            arr[1]='L0201';
-
-                            arr[2]='L0202';
-
-                            arr[3]='L0203';
-
-                            arr[4]='L0204';
-
-                            arr[5]='L0205';
-
-                            arr[6]='L020501';
-
-                            arr[7]='L020502';
-
-                            arr[8]='L020503';
-
-                         var rightCodes=document.getElementsByName("rightCodes");
-                         for(var j=0;j<arr.length;j++){
-                                for(var k=0;k<rightCodes.length;k++){
-
-                                        if(rightCodes[k].value==arr[j]){
-                                            rightCodes[k].checked=true;
-                                        }
-                                }
-                         }
-
-                    }
-
-            window.onload=byDefault;
-        </script>*@
 </body>
 </html>

@@ -39,7 +39,7 @@ namespace EF
 
         public DbSet<MajorRelease> MajorRelease { get; set; }
 
-        public DbSet<MajorZW> Major { get; set; }
+        public DbSet<MajorZW> MajorZw { get; set; }
 
         public DbSet<Jl> Jl { get; set; }
 

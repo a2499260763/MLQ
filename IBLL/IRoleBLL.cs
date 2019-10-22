@@ -9,7 +9,7 @@ namespace IBLL
 {
     public interface IRoleBLL
     {
-
+        RoleModel SelectOne(int id);
         int RoleAdd(RoleModel sm);
         int RoleUpdate(RoleModel sm);
         int RoleDelete(RoleModel sm);
